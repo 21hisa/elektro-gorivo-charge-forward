@@ -55,7 +55,7 @@ const categories = [
       "Liquid-cooled power modules",
       "Dynamic load distribution",
       "OCPP 1.6J / 2.0.1",
-      '7" capacitive HMI display',
+      "7-inch capacitive HMI display",
       "MID-grade DC metering",
     ],
   },
