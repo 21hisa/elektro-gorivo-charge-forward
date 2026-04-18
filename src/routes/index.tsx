@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import chargerHero from "@/assets/charger-hero.jpg";
 import ecosystemApp from "@/assets/ecosystem-app.jpg";
-import productHome from "@/assets/product-home.jpg";
-import productCommercial from "@/assets/product-commercial.jpg";
-import productDc from "@/assets/product-dc.jpg";
+import naya30 from "@/assets/products/naya-30kw.jpg";
+import naya120 from "@/assets/products/naya-120kw.jpg";
+import naya360 from "@/assets/products/naya-360kw.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
