@@ -77,13 +77,6 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-foreground px-5 py-2 text-center text-sm font-medium text-background"
-            >
-              Get a Quote
-            </Link>
           </nav>
         </div>
       )}
