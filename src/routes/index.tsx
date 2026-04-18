@@ -26,9 +26,9 @@ const benefits = [
 ];
 
 const products = [
-  { name: "Volta Home", spec: "7.4 – 22 kW", img: productHome, tag: "Home" },
-  { name: "Volta Pro", spec: "22 – 60 kW", img: productCommercial, tag: "Commercial" },
-  { name: "Volta Hyper", spec: "120 – 360 kW", img: productDc, tag: "DC Fast" },
+  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: naya30, tag: "Workplace" },
+  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: naya120, tag: "Commercial" },
+  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: naya360, tag: "Highway" },
 ];
 
 function HomePage() {
