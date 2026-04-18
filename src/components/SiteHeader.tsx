@@ -31,7 +31,14 @@ export function SiteHeader() {
           scrolled ? "glass shadow-elevated mx-4" : "bg-transparent"
         }`}
       >
-        <nav className="hidden items-center gap-1 md:flex">
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="Elektro Gorivo" className="h-7 w-auto" />
+          <span className="text-sm font-medium tracking-[0.2em] uppercase">
+            Elektro <span className="text-electric">Gorivo</span>
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-1 md:flex md:ml-auto">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -44,13 +51,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-
-        <Link to="/" className="flex items-center gap-2.5 md:ml-auto">
-          <img src={logo} alt="Elektro Gorivo" className="h-7 w-auto" />
-          <span className="text-sm font-medium tracking-[0.2em] uppercase">
-            Elektro <span className="text-electric">Gorivo</span>
-          </span>
-        </Link>
 
         <button
           aria-label="Toggle menu"
