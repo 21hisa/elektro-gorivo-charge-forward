@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import productHome from "@/assets/product-home.jpg";
-import productCommercial from "@/assets/product-commercial.jpg";
-import productDc from "@/assets/product-dc.jpg";
+import naya30 from "@/assets/products/naya-30kw.jpg";
+import naya60 from "@/assets/products/naya-60kw.jpg";
+import naya120 from "@/assets/products/naya-120kw.jpg";
+import naya240 from "@/assets/products/naya-240kw.jpg";
+import naya360 from "@/assets/products/naya-360kw.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "Products — Elektro Gorivo" },
-      { name: "description", content: "Explore the Elektro Gorivo range — Volta Home, Volta Pro, and Volta Hyper. Premium EV chargers from 7.4 kW to 360 kW." },
+      { name: "description", content: "Explore the Elektro Gorivo DC fast-charger range — 30 kW wall/stand-mounted to 360 kW ultra-fast standalone units. CE, IEC 61851 & IEC 61000 compliant." },
       { property: "og:title", content: "Products — Elektro Gorivo" },
-      { property: "og:description", content: "Premium EV chargers from 7.4 kW to 360 kW. Engineered for every journey." },
+      { property: "og:description", content: "European-standard ultra-fast DC chargers from 30 kW to 360 kW. Engineered for every journey." },
     ],
   }),
   component: ProductsPage,
@@ -18,43 +20,104 @@ export const Route = createFileRoute("/products")({
 
 const categories = [
   {
-    tag: "Home Chargers",
-    name: "Volta Home",
-    tagline: "Effortless charging, every night.",
-    img: productHome,
+    tag: "Wall / Stand-mounted",
+    name: "EG-DC 30",
+    power: "30 kW",
+    tagline: "Compact DC. Workplace ready.",
+    img: naya30,
     specs: [
-      { l: "Power", v: "7.4 – 22 kW" },
-      { l: "Connector", v: "Type 2 · Tethered" },
-      { l: "Connectivity", v: "Wi-Fi · Bluetooth · 4G" },
-      { l: "Protection", v: "IP54 · IK10" },
+      { l: "Output Power", v: "30 kW DC" },
+      { l: "Input", v: "3-phase 380–415 V AC" },
+      { l: "Connectors", v: "CCS2 · CHAdeMO · GB/T" },
+      { l: "Protection", v: "IP55 · IK10" },
     ],
-    features: ["Solar PV integration", "Dynamic load balancing", "OTA updates", "RFID & app unlock"],
+    features: [
+      "Wall or pedestal mount",
+      "OCPP 1.6J / 2.0.1",
+      "4G · Wi-Fi · Ethernet · Bluetooth",
+      "Local storage > 10,000 logs",
+      "RFID · App · QR start",
+    ],
   },
   {
-    tag: "Commercial",
-    name: "Volta Pro",
-    tagline: "Always on, for everyone.",
-    img: productCommercial,
+    tag: "Standalone Compact",
+    name: "EG-DC 60",
+    power: "60 kW",
+    tagline: "Highway-grade power. City-friendly footprint.",
+    img: naya60,
     specs: [
-      { l: "Power", v: "22 – 60 kW" },
-      { l: "Output", v: "AC + DC hybrid" },
-      { l: "Standards", v: "OCPP 2.0.1" },
-      { l: "Protection", v: "IP55 · vandal-resistant" },
+      { l: "Output Power", v: "60 kW DC" },
+      { l: "Voltage Range", v: "150 – 1000 V DC" },
+      { l: "Connectors", v: "Dual gun · CCS2 / CHAdeMO" },
+      { l: "Efficiency", v: "≥ 95%" },
     ],
-    features: ["Fleet management", "Dynamic pricing", "Multi-tenant billing", "Remote diagnostics"],
+    features: [
+      "Liquid-cooled power modules",
+      "Dynamic load distribution",
+      "OCPP 1.6J / 2.0.1",
+      '7" capacitive HMI display',
+      "MID-grade DC metering",
+    ],
   },
   {
-    tag: "DC Fast",
-    name: "Volta Hyper",
-    tagline: "Highway speed. Hotel comfort.",
-    img: productDc,
+    tag: "Standalone DC Fast",
+    name: "EG-DC 120",
+    power: "80 / 120 / 160 kW",
+    tagline: "One platform. Three power tiers.",
+    img: naya120,
     specs: [
-      { l: "Power", v: "120 – 360 kW" },
-      { l: "Connectors", v: "CCS2 · CHAdeMO" },
-      { l: "Charge time", v: "10–80% in 18 min" },
-      { l: "Cooling", v: "Liquid-cooled cables" },
+      { l: "Output Power", v: "80 – 160 kW DC" },
+      { l: "Voltage Range", v: "200 – 1000 V DC" },
+      { l: "Connectors", v: "Dual CCS2 + optional CHAdeMO" },
+      { l: "Cooling", v: "Forced-air, sealed airflow" },
     ],
-    features: ["Plug & Charge ISO 15118", "Modular power stack", "MID-certified metering", "Tap-to-pay terminal"],
+    features: [
+      "Modular 40 kW power stack",
+      "Cable management arm",
+      "Plug & Charge ISO 15118 ready",
+      "Tap-to-pay terminal (optional)",
+      "3-year warranty, extendable to 5",
+    ],
+  },
+  {
+    tag: "Standalone Ultra-Fast",
+    name: "EG-DC 240",
+    power: "180 / 240 / 320 kW",
+    tagline: "Built for fleets, hubs, and highways.",
+    img: naya240,
+    specs: [
+      { l: "Output Power", v: "180 – 320 kW DC" },
+      { l: "Voltage Range", v: "200 – 1000 V DC" },
+      { l: "Connectors", v: "Dual CCS2 · liquid-cooled" },
+      { l: "Charge time", v: "10 – 80% in ~18 min" },
+    ],
+    features: [
+      "Liquid-cooled 500 A cables",
+      "Dynamic power sharing",
+      "Vandal-resistant enclosure",
+      "Remote diagnostics & OTA",
+      "Multi-tenant billing",
+    ],
+  },
+  {
+    tag: "Hyper Charger",
+    name: "EG-DC 360",
+    power: "360 kW",
+    tagline: "The flagship. A full charge in a coffee break.",
+    img: naya360,
+    specs: [
+      { l: "Output Power", v: "360 kW DC" },
+      { l: "Voltage Range", v: "200 – 1000 V DC" },
+      { l: "Connectors", v: "Dual CCS2 · 500 A liquid-cooled" },
+      { l: "Standards", v: "CE · IEC 61851 · IEC 61000" },
+    ],
+    features: [
+      "ISO 15118 Plug & Charge",
+      "Up to 480 kW configurable stack",
+      "Integrated MID metering",
+      "24/7 cloud monitoring",
+      "5-year extendable warranty",
+    ],
   },
 ];
 
@@ -72,8 +135,8 @@ function ProductsPage() {
               <span className="text-electric-gradient italic">every moment.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
-              From the quiet of your garage to a thousand-vehicle hub — one design language,
-              three power tiers, and a single intelligent ecosystem.
+              From a 30 kW workplace unit to a 360 kW highway flagship — one design language,
+              five power tiers, and a single intelligent ecosystem.
             </p>
           </Reveal>
         </div>
@@ -94,11 +157,11 @@ function ProductsPage() {
                   <div className="overflow-hidden rounded-3xl bg-surface shadow-elevated">
                     <img
                       src={c.img}
-                      alt={c.name}
+                      alt={`${c.name} ${c.power} EV charger`}
                       width={1280}
                       height={1280}
                       loading="lazy"
-                      className="aspect-square w-full object-cover transition-transform duration-[1500ms] ease-out hover:scale-[1.04]"
+                      className="aspect-square w-full object-contain p-8 transition-transform duration-[1500ms] ease-out hover:scale-[1.04]"
                     />
                   </div>
                 </div>
@@ -106,7 +169,7 @@ function ProductsPage() {
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-electric">{c.tag}</p>
                   <h2 className="mt-3 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
-                    {c.name}
+                    {c.name} <span className="text-muted-foreground">· {c.power}</span>
                   </h2>
                   <p className="mt-3 text-lg italic text-muted-foreground">{c.tagline}</p>
 

@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import chargerHero from "@/assets/charger-hero.jpg";
 import ecosystemApp from "@/assets/ecosystem-app.jpg";
-import productHome from "@/assets/product-home.jpg";
-import productCommercial from "@/assets/product-commercial.jpg";
-import productDc from "@/assets/product-dc.jpg";
+import naya30 from "@/assets/products/naya-30kw.jpg";
+import naya120 from "@/assets/products/naya-120kw.jpg";
+import naya360 from "@/assets/products/naya-360kw.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,9 +26,9 @@ const benefits = [
 ];
 
 const products = [
-  { name: "Volta Home", spec: "7.4 – 22 kW", img: productHome, tag: "Home" },
-  { name: "Volta Pro", spec: "22 – 60 kW", img: productCommercial, tag: "Commercial" },
-  { name: "Volta Hyper", spec: "120 – 360 kW", img: productDc, tag: "DC Fast" },
+  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: naya30, tag: "Workplace" },
+  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: naya120, tag: "Commercial" },
+  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: naya360, tag: "Highway" },
 ];
 
 function HomePage() {
@@ -161,7 +161,7 @@ function HomePage() {
                       width={1280}
                       height={1280}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                      className="h-full w-full object-contain p-10 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                     <div className="absolute inset-0 flex flex-col justify-end p-7">
