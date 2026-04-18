@@ -34,7 +34,7 @@ function AboutPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative h-[90vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[80vh] min-h-[500px] overflow-hidden sm:h-[90vh] sm:min-h-[600px]">
         <img
           src={aboutHero}
           alt="EV charging at sunset"
@@ -43,10 +43,10 @@ function AboutPage() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
-        <div className="relative mx-auto flex h-full max-w-5xl items-end px-6 pb-20">
+        <div className="relative mx-auto flex h-full max-w-5xl items-end px-5 pb-14 sm:px-6 sm:pb-20">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">About Elektro Gorivo</p>
-            <h1 className="mt-5 max-w-4xl text-balance text-5xl font-extralight tracking-tight sm:text-7xl">
+            <h1 className="mt-5 max-w-4xl text-balance text-4xl font-extralight tracking-tight sm:text-6xl md:text-7xl">
               <span className="text-gradient">We don't sell chargers.</span>{" "}
               <span className="text-electric-gradient italic">We build the grid of tomorrow.</span>
             </h1>
@@ -55,8 +55,8 @@ function AboutPage() {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="py-32">
-        <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-2">
+      <section className="py-20 sm:py-32">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:gap-16 sm:px-6 md:grid-cols-2">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-electric">Mission</p>
             <h2 className="mt-4 text-3xl font-extralight leading-tight">

@@ -35,12 +35,12 @@ function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center justify-center pt-32">
+      <section className="relative flex min-h-screen items-center justify-center pt-28 sm:pt-32">
         <div className="absolute inset-0 bg-radial-electric" />
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent" />
 
-        <div className="relative mx-auto max-w-7xl px-6 text-center">
+        <div className="relative mx-auto max-w-7xl px-5 text-center sm:px-6">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance mt-6 text-5xl font-extralight leading-[1.05] tracking-tight sm:text-7xl md:text-8xl"
+            className="text-balance mt-6 text-4xl font-extralight leading-[1.05] tracking-tight sm:text-7xl md:text-8xl"
           >
             <span className="text-gradient">Powering the future</span>
             <br />
@@ -85,9 +85,10 @@ function HomePage() {
             </Link>
             <Link
               to="/contact"
+              hash="brochure"
               className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-electric hover:text-electric"
             >
-              Get a Quote
+              Download Brochure
             </Link>
           </motion.div>
 
@@ -110,8 +111,8 @@ function HomePage() {
       </section>
 
       {/* BENEFITS */}
-      <section className="relative py-32">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative py-20 sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Why Elektro Gorivo</p>
             <h2 className="mt-3 max-w-3xl text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
@@ -134,8 +135,8 @@ function HomePage() {
       </section>
 
       {/* PRODUCT PREVIEW */}
-      <section className="relative py-32">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative py-20 sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
             <div className="flex items-end justify-between gap-6">
               <div>
@@ -178,8 +179,8 @@ function HomePage() {
       </section>
 
       {/* ECOSYSTEM */}
-      <section className="relative overflow-hidden py-32">
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-2">
+      <section className="relative overflow-hidden py-20 sm:py-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 md:grid-cols-2 md:gap-16">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-electric">Smart Charging Ecosystem</p>
             <h2 className="mt-4 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
@@ -237,9 +238,9 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32">
+      <section className="relative py-20 sm:py-32">
         <div className="absolute inset-0 bg-radial-electric opacity-70" />
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
           <Reveal>
             <h2 className="text-balance text-5xl font-extralight tracking-tight sm:text-6xl">
               Charge into <span className="text-electric-gradient italic">tomorrow.</span>
@@ -249,8 +250,8 @@ function HomePage() {
               workplace, or across your network.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link to="/contact" className="rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.03]">
-                Get a Quote
+              <Link to="/contact" hash="brochure" className="rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.03]">
+                Download Brochure
               </Link>
               <Link to="/products" className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-electric">
                 Explore Products

@@ -125,16 +125,16 @@ function ProductsPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative pt-40 pb-20">
+      <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-20">
         <div className="absolute inset-0 bg-radial-electric opacity-60" />
-        <div className="relative mx-auto max-w-5xl px-6 text-center">
+        <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">The Range</p>
-            <h1 className="mt-5 text-balance text-5xl font-extralight tracking-tight sm:text-7xl">
+            <h1 className="mt-5 text-balance text-4xl font-extralight tracking-tight sm:text-6xl md:text-7xl">
               <span className="text-gradient">A charger for</span>{" "}
               <span className="text-electric-gradient italic">every moment.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
+            <p className="mx-auto mt-6 max-w-xl text-sm text-muted-foreground sm:text-base">
               From a 30 kW workplace unit to a 360 kW highway flagship — one design language,
               five power tiers, and a single intelligent ecosystem.
             </p>
@@ -143,8 +143,8 @@ function ProductsPage() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="pb-32">
-        <div className="mx-auto max-w-7xl space-y-32 px-6">
+      <section className="pb-20 sm:pb-32">
+        <div className="mx-auto max-w-7xl space-y-20 px-5 sm:space-y-32 sm:px-6">
           {categories.map((c, i) => (
             <Reveal key={c.name}>
               <div
@@ -168,7 +168,7 @@ function ProductsPage() {
 
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-electric">{c.tag}</p>
-                  <h2 className="mt-3 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
+                  <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
                     {c.name} <span className="text-muted-foreground">· {c.power}</span>
                   </h2>
                   <p className="mt-3 text-lg italic text-muted-foreground">{c.tagline}</p>
@@ -194,9 +194,10 @@ function ProductsPage() {
                   <div className="mt-10">
                     <Link
                       to="/contact"
+                      hash="brochure"
                       className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-electric hover:text-electric"
                     >
-                      Request specifications →
+                      Download brochure →
                     </Link>
                   </div>
                 </div>
