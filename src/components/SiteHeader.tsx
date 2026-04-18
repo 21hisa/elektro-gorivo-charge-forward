@@ -31,13 +31,6 @@ export function SiteHeader() {
           scrolled ? "glass shadow-elevated mx-4" : "bg-transparent"
         }`}
       >
-        <Link to="/" className="flex items-center gap-2.5">
-          <img src={logo} alt="Elektro Gorivo" className="h-7 w-auto" />
-          <span className="text-sm font-medium tracking-[0.2em] uppercase">
-            Elektro <span className="text-electric">Gorivo</span>
-          </span>
-        </Link>
-
         <nav className="hidden items-center gap-1 md:flex">
           {nav.map((item) => (
             <Link
@@ -52,14 +45,12 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link
-            to="/contact"
-            className="rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
-          >
-            Get a Quote
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center gap-2.5 md:ml-auto">
+          <img src={logo} alt="Elektro Gorivo" className="h-7 w-auto" />
+          <span className="text-sm font-medium tracking-[0.2em] uppercase">
+            Elektro <span className="text-electric">Gorivo</span>
+          </span>
+        </Link>
 
         <button
           aria-label="Toggle menu"
@@ -86,13 +77,6 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-foreground px-5 py-2 text-center text-sm font-medium text-background"
-            >
-              Get a Quote
-            </Link>
           </nav>
         </div>
       )}
