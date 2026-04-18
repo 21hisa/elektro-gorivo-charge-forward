@@ -85,9 +85,10 @@ function HomePage() {
             </Link>
             <Link
               to="/contact"
+              hash="brochure"
               className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-electric hover:text-electric"
             >
-              Get a Quote
+              Download Brochure
             </Link>
           </motion.div>
 
@@ -249,8 +250,8 @@ function HomePage() {
               workplace, or across your network.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link to="/contact" className="rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.03]">
-                Get a Quote
+              <Link to="/contact" hash="brochure" className="rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.03]">
+                Download Brochure
               </Link>
               <Link to="/products" className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-electric">
                 Explore Products
