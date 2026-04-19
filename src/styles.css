@@ -142,7 +142,7 @@
     color: transparent;
   }
   .text-electric-gradient {
-    background: linear-gradient(135deg, oklch(0.98 0.002 250), var(--electric));
+    background: linear-gradient(135deg, oklch(0.3 0.05 155), var(--electric));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
