@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import aboutHero from "@/assets/about-hero.jpg";
+import { FloatingLeaves } from "@/components/FloatingLeaves";
+import { OrganicBlob } from "@/components/OrganicBlob";
+import { Counter } from "@/components/Counter";
+import natureHero from "@/assets/nature-hero.jpg";
+import youngTree from "@/assets/young-tree.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
