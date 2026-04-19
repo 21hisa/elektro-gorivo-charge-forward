@@ -42,72 +42,72 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand: Elektro Gorivo — deep onyx + electric green */
-  --background: oklch(0.13 0.005 250);
-  --foreground: oklch(0.98 0.002 250);
-  --surface: oklch(0.16 0.006 250);
-  --surface-elevated: oklch(0.19 0.008 250);
+  /* Brand: Elektro Gorivo — soft daylight + forest green (eco / nature) */
+  --background: oklch(0.985 0.008 130);
+  --foreground: oklch(0.22 0.03 155);
+  --surface: oklch(0.965 0.012 130);
+  --surface-elevated: oklch(0.995 0.005 130);
 
-  --card: oklch(0.16 0.006 250);
-  --card-foreground: oklch(0.98 0.002 250);
-  --popover: oklch(0.16 0.006 250);
-  --popover-foreground: oklch(0.98 0.002 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 155);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 155);
 
-  --primary: oklch(0.98 0.002 250);
-  --primary-foreground: oklch(0.13 0.005 250);
+  --primary: oklch(0.45 0.12 155);
+  --primary-foreground: oklch(0.99 0.005 130);
 
-  --secondary: oklch(0.22 0.008 250);
-  --secondary-foreground: oklch(0.98 0.002 250);
+  --secondary: oklch(0.93 0.02 140);
+  --secondary-foreground: oklch(0.25 0.04 155);
 
-  --muted: oklch(0.22 0.008 250);
-  --muted-foreground: oklch(0.62 0.012 250);
+  --muted: oklch(0.94 0.015 135);
+  --muted-foreground: oklch(0.48 0.025 150);
 
-  --accent: oklch(0.78 0.18 152);
-  --accent-foreground: oklch(0.13 0.005 250);
+  --accent: oklch(0.62 0.16 150);
+  --accent-foreground: oklch(0.99 0.005 130);
 
-  --electric: oklch(0.78 0.18 152);
-  --electric-glow: oklch(0.85 0.22 152);
+  --electric: oklch(0.55 0.16 150);
+  --electric-glow: oklch(0.72 0.18 148);
 
-  --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.98 0.002 250);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 130);
 
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.18 152);
+  --border: oklch(0.25 0.04 155 / 12%);
+  --input: oklch(0.25 0.04 155 / 16%);
+  --ring: oklch(0.55 0.16 150);
 
-  --chart-1: oklch(0.78 0.18 152);
-  --chart-2: oklch(0.6 0.15 200);
-  --chart-3: oklch(0.7 0.1 250);
-  --chart-4: oklch(0.5 0.08 152);
-  --chart-5: oklch(0.85 0.05 152);
+  --chart-1: oklch(0.55 0.16 150);
+  --chart-2: oklch(0.7 0.13 180);
+  --chart-3: oklch(0.75 0.12 95);
+  --chart-4: oklch(0.45 0.1 155);
+  --chart-5: oklch(0.82 0.08 140);
 
-  --sidebar: oklch(0.13 0.005 250);
-  --sidebar-foreground: oklch(0.98 0.002 250);
-  --sidebar-primary: oklch(0.78 0.18 152);
-  --sidebar-primary-foreground: oklch(0.13 0.005 250);
-  --sidebar-accent: oklch(0.22 0.008 250);
-  --sidebar-accent-foreground: oklch(0.98 0.002 250);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.78 0.18 152);
+  --sidebar: oklch(0.985 0.008 130);
+  --sidebar-foreground: oklch(0.22 0.03 155);
+  --sidebar-primary: oklch(0.55 0.16 150);
+  --sidebar-primary-foreground: oklch(0.99 0.005 130);
+  --sidebar-accent: oklch(0.93 0.02 140);
+  --sidebar-accent-foreground: oklch(0.25 0.04 155);
+  --sidebar-border: oklch(0.25 0.04 155 / 12%);
+  --sidebar-ring: oklch(0.55 0.16 150);
 
   /* Gradients & shadows */
   --gradient-radial-electric: radial-gradient(
     ellipse 80% 60% at 50% 0%,
-    color-mix(in oklab, var(--electric) 22%, transparent) 0%,
+    color-mix(in oklab, var(--electric) 18%, transparent) 0%,
     transparent 70%
   );
   --gradient-text: linear-gradient(
     180deg,
-    oklch(1 0 0) 0%,
-    oklch(0.7 0.005 250) 100%
+    oklch(0.3 0.05 155) 0%,
+    oklch(0.5 0.12 150) 100%
   );
   --gradient-electric: linear-gradient(
     135deg,
     var(--electric) 0%,
     var(--electric-glow) 100%
   );
-  --shadow-glow: 0 0 60px -10px color-mix(in oklab, var(--electric) 40%, transparent);
-  --shadow-elevated: 0 30px 80px -20px oklch(0 0 0 / 0.6);
+  --shadow-glow: 0 0 60px -10px color-mix(in oklab, var(--electric) 35%, transparent);
+  --shadow-elevated: 0 30px 80px -20px oklch(0.3 0.05 155 / 0.18);
 }
 
 @layer base {
