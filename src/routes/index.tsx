@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { GrowingTree } from "@/components/GrowingTree";
 import { Counter } from "@/components/Counter";
-import natureHero from "@/assets/nature-hero.jpg";
+import { ParallaxHero } from "@/components/ParallaxHero";
+import { RippleLink } from "@/components/RippleButton";
+import { TiltCard } from "@/components/TiltCard";
+import { CleanIcon, SmartIcon, EnduringIcon } from "@/components/AnimatedIcons";
+import forestHero from "@/assets/forest-hero-cinematic.jpg";
 import forestCanopy from "@/assets/forest-canopy.jpg";
 import chargerHero from "@/assets/charger-hero.jpg";
 import ecosystemApp from "@/assets/ecosystem-app.jpg";
@@ -16,147 +19,145 @@ import naya360 from "@/assets/products/naya-360kw.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Elektro Gorivo — Charging Tomorrow's Forest" },
-      { name: "description", content: "Premium smart EV chargers, intelligently connected. Engineered for cleaner air, quieter cities, and a greener tomorrow." },
+      { title: "Elektro Gorivo — Every charge breathes life back into the planet" },
+      { name: "description", content: "Premium EV chargers engineered for cleaner air, quieter cities, and a sustainable future. Smart, fast, and rooted in nature." },
       { property: "og:title", content: "Elektro Gorivo — Powering the Future of Mobility" },
       { property: "og:description", content: "Premium EV charging that grows the planet, not the carbon count." },
-      { property: "og:image", content: natureHero },
+      { property: "og:image", content: forestHero },
+      { name: "twitter:image", content: forestHero },
     ],
   }),
   component: HomePage,
 });
 
 const benefits = [
-  { k: "01", title: "Clean", body: "Every kilowatt delivered displaces a litre of fossil fuel — quieter streets, cleaner skies." },
-  { k: "02", title: "Smart", body: "Solar-aware scheduling, dynamic load balancing, and intelligence that learns the grid." },
-  { k: "03", title: "Enduring", body: "Weather-sealed engineering and 99.9% uptime — built to outlast a forest's first decade." },
+  {
+    k: "01",
+    title: "Clean",
+    body: "Every kilowatt delivered displaces a litre of fossil fuel — quieter streets, cleaner skies.",
+    Icon: CleanIcon,
+  },
+  {
+    k: "02",
+    title: "Smart",
+    body: "Solar-aware scheduling, dynamic load balancing, and intelligence that learns the grid.",
+    Icon: SmartIcon,
+  },
+  {
+    k: "03",
+    title: "Enduring",
+    body: "Weather-sealed engineering and 99.9% uptime — built to outlast a forest's first decade.",
+    Icon: EnduringIcon,
+  },
 ];
 
 const products = [
-  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: naya30, tag: "Workplace" },
-  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: naya120, tag: "Commercial" },
-  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: naya360, tag: "Highway" },
+  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: naya30, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
+  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: naya120, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
+  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: naya360, tag: "Highway", co2: "9.8t/yr", trees: "445" },
 ];
 
 function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* HERO — forest immersion */}
-      <section className="relative flex min-h-[100svh] items-center justify-center pt-28 sm:pt-32">
-        {/* Forest background with parallax */}
-        <motion.div
-          initial={{ scale: 1.08, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0"
-        >
-          <img
-            src={natureHero}
-            alt="Sunlit forest road"
-            width={1920}
-            height={1080}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        </motion.div>
-
-        <FloatingLeaves />
-
-        <div className="relative mx-auto max-w-7xl px-5 text-center sm:px-6">
+      {/* HERO */}
+      <ParallaxHero>
+        <div className="mx-auto max-w-7xl px-5 text-center sm:px-6">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xs uppercase tracking-[0.4em] text-electric"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-[10px] uppercase tracking-[0.4em] text-electric sm:text-xs"
           >
             Elektro Gorivo · Charging the Forest
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance mt-6 text-4xl font-extralight leading-[1.05] tracking-tight sm:text-7xl md:text-[5.5rem]"
+            transition={{ duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-balance mt-5 text-[2.25rem] font-extralight leading-[1.05] tracking-tight sm:mt-6 sm:text-7xl md:text-[5.5rem]"
           >
-            <span className="text-gradient">Every charge,</span>
+            <span className="text-gradient">Every charge breathes</span>
             <br />
-            <span className="text-electric-gradient italic font-light">a tree replanted.</span>
+            <span className="text-electric-gradient italic font-light">life back into the planet.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.1 }}
-            className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            transition={{ duration: 1, delay: 1.05 }}
+            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-foreground/80 sm:mt-8 sm:text-lg"
           >
-            Premium electric vehicle chargers, intelligently connected — engineered for cleaner
-            air, quieter cities, and a planet that breathes a little easier.
+            Premium EV chargers engineered for cleaner air, quieter cities, and a
+            sustainable future — quietly heroic, deeply rooted.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+            transition={{ duration: 0.8, delay: 1.25 }}
+            className="mt-9 flex flex-wrap items-center justify-center gap-3 sm:mt-12"
           >
-            <Link
-              to="/products"
-              className="group rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03]"
-            >
+            <RippleLink to="/products" variant="primary">
               Explore the Range →
-            </Link>
-            <Link
-              to="/contact"
-              hash="brochure"
-              className="rounded-full border border-border bg-card/60 px-6 py-3 text-sm font-medium text-foreground backdrop-blur transition-colors hover:border-electric hover:text-electric"
-            >
-              Download Brochure
-            </Link>
+            </RippleLink>
+            <RippleLink to="/contact" hash="brochure" variant="ghost">
+              See Your Impact
+            </RippleLink>
           </motion.div>
+        </div>
 
-          {/* Scroll cue */}
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 sm:bottom-10"
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-10 w-6 items-start justify-center rounded-full border border-foreground/30 p-1.5"
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="flex h-10 w-6 items-start justify-center rounded-full border border-border p-1.5"
-            >
-              <span className="h-2 w-1 rounded-full bg-electric" />
-            </motion.div>
+            <span className="h-2 w-1 rounded-full bg-electric" />
           </motion.div>
-        </div>
-      </section>
+        </motion.div>
+      </ParallaxHero>
 
-      {/* IMPACT — counter strip */}
-      <section className="relative border-y border-border bg-surface/60 py-16 sm:py-20">
+      {/* IMPACT */}
+      <section className="relative border-y border-border bg-surface/60 py-14 sm:py-20">
         <OrganicBlob className="-top-40 -left-32 h-[500px] w-[500px]" opacity={0.12} />
-        <div className="relative mx-auto grid max-w-6xl grid-cols-2 gap-10 px-5 sm:px-6 md:grid-cols-4">
-          {[
-            { v: 180, suf: " GWh", l: "Clean energy delivered" },
-            { v: 96, suf: "K", l: "Tonnes of CO₂ avoided" },
-            { v: 1.6, suf: "M", l: "Equivalent trees planted", dec: 1 },
-            { v: 99.9, suf: "%", l: "Network uptime", dec: 1 },
-          ].map((s, i) => (
-            <Reveal key={s.l} delay={i * 0.08}>
-              <div>
-                <p className="text-3xl font-extralight tracking-tight text-electric sm:text-5xl">
-                  <Counter to={s.v} suffix={s.suf} decimals={s.dec ?? 0} />
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.l}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
+          <Reveal>
+            <p className="text-center text-[10px] uppercase tracking-[0.35em] text-muted-foreground sm:text-xs">
+              Live environmental impact
+            </p>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4 md:mt-12">
+            {[
+              { v: 180, suf: " GWh", l: "Clean energy delivered", emoji: "⚡" },
+              { v: 96, suf: "K", l: "Tonnes of CO₂ avoided", emoji: "🌍" },
+              { v: 1.6, suf: "M", l: "Trees planted equivalent", dec: 1, emoji: "🌱" },
+              { v: 99.9, suf: "%", l: "Network uptime", dec: 1, emoji: "🛡" },
+            ].map((s, i) => (
+              <Reveal key={s.l} delay={i * 0.08}>
+                <div className="text-center md:text-left">
+                  <p className="text-2xl tracking-tight text-electric drop-shadow-[0_0_25px_var(--electric-glow)] sm:text-5xl font-extralight">
+                    <Counter to={s.v} suffix={s.suf} decimals={s.dec ?? 0} />
+                  </p>
+                  <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
+                    {s.l}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* PHILOSOPHY — tree growth */}
-      <section className="relative py-24 sm:py-32">
+      {/* PHILOSOPHY */}
+      <section className="relative py-20 sm:py-32">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-6 md:grid-cols-[1fr_1.2fr] md:gap-20">
           <Reveal>
             <div className="relative mx-auto w-full max-w-sm">
@@ -166,7 +167,7 @@ function HomePage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-xs uppercase tracking-[0.3em] text-electric">Our Philosophy</p>
-            <h2 className="mt-4 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
+            <h2 className="mt-4 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
               Infrastructure that <span className="text-electric-gradient italic">grows</span> the
               world it powers.
             </h2>
@@ -191,42 +192,61 @@ function HomePage() {
         </div>
       </section>
 
-      {/* BENEFITS */}
+      {/* WHY — animated icons */}
       <section className="relative py-20 sm:py-32">
         <OrganicBlob className="-right-40 top-20 h-[600px] w-[600px]" opacity={0.1} />
+        <div
+          className="absolute inset-x-0 top-0 -z-10 h-1/2 opacity-60"
+          style={{
+            background:
+              "linear-gradient(180deg, color-mix(in oklab, var(--electric) 6%, transparent), transparent)",
+          }}
+        />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Why Elektro Gorivo</p>
-            <h2 className="mt-3 max-w-3xl text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
-              Three principles. <span className="text-electric-gradient italic">One promise to the planet.</span>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              Why Elektro Gorivo
+            </p>
+            <h2 className="mt-3 max-w-3xl text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
+              Three principles.{" "}
+              <span className="text-electric-gradient italic">One promise to the planet.</span>
             </h2>
           </Reveal>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
-            {benefits.map((b, i) => (
-              <Reveal key={b.k} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.4 }}
-                  className="group h-full bg-card p-10 transition-colors duration-500 hover:bg-surface-elevated"
-                >
-                  <p className="text-xs font-mono text-electric">{b.k}</p>
-                  <h3 className="mt-6 text-3xl font-light">{b.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
-                </motion.div>
-              </Reveal>
-            ))}
+          <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 sm:mt-16">
+            {benefits.map((b, i) => {
+              const Icon = b.Icon;
+              return (
+                <Reveal key={b.k} delay={i * 0.1}>
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.4 }}
+                    className="group relative h-full overflow-hidden bg-card p-8 transition-colors duration-500 hover:bg-surface-elevated sm:p-10"
+                  >
+                    <div className="flex items-center justify-between">
+                      <Icon />
+                      <p className="font-mono text-xs text-muted-foreground">{b.k}</p>
+                    </div>
+                    <h3 className="mt-8 text-2xl font-light sm:text-3xl">{b.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                      {b.body}
+                    </p>
+                    <div className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-electric transition-transform duration-700 group-hover:scale-x-100" />
+                  </motion.div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* HARDWARE SHOWCASE */}
+      {/* HARDWARE — dark to light reveal */}
       <section className="relative py-20 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Hardware</p>
-              <h2 className="mt-3 text-balance text-4xl font-extralight tracking-tight sm:text-6xl">
+              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-6xl">
                 Designed quietly. <span className="text-electric-gradient italic">Built loudly.</span>
               </h2>
             </div>
@@ -234,33 +254,48 @@ function HomePage() {
 
           <Reveal delay={0.15}>
             <motion.div
-              whileInView={{ scale: [0.96, 1] }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto mt-14 w-full max-w-4xl"
+              initial={{ opacity: 0, scale: 0.94, filter: "brightness(0.4)" }}
+              whileInView={{ opacity: 1, scale: 1, filter: "brightness(1)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative mx-auto mt-12 w-full max-w-4xl sm:mt-14"
             >
               <div className="absolute -inset-10 -z-10 rounded-[3rem] bg-electric/15 blur-3xl" />
-              <img
-                src={chargerHero}
-                alt="Elektro Gorivo flagship EV charger"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="rounded-3xl shadow-elevated"
-              />
+              <div className="relative overflow-hidden rounded-3xl shadow-elevated">
+                <img
+                  src={chargerHero}
+                  alt="Elektro Gorivo flagship EV charger"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="w-full"
+                />
+                {/* LED strip sweep */}
+                <motion.div
+                  aria-hidden
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ scaleX: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.4, delay: 0.8, ease: "easeOut" }}
+                  style={{ transformOrigin: "left" }}
+                  className="led-strip absolute inset-x-0 bottom-0 h-1"
+                />
+              </div>
             </motion.div>
           </Reveal>
         </div>
       </section>
 
-      {/* PRODUCT PREVIEW */}
+      {/* PRODUCT PREVIEW — tilt + LED + stats */}
       <section className="relative py-20 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Range</p>
-                <h2 className="mt-3 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  The Range
+                </p>
+                <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
                   Engineered for every journey.
                 </h2>
               </div>
@@ -270,30 +305,43 @@ function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3" style={{ perspective: 1400 }}>
             {products.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
                 <Link to="/products" className="group block">
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-card"
-                  >
-                    <img
-                      src={p.img}
-                      alt={p.name}
-                      width={1280}
-                      height={1280}
-                      loading="lazy"
-                      className="h-full w-full object-contain p-10 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                    <div className="absolute inset-0 flex flex-col justify-end p-7">
-                      <p className="text-xs uppercase tracking-[0.25em] text-electric">{p.tag}</p>
-                      <h3 className="mt-2 text-2xl font-light">{p.name}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">{p.spec}</p>
+                  <TiltCard className="group">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-card">
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        width={1280}
+                        height={1280}
+                        loading="lazy"
+                        className="h-full w-full object-contain p-10 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+
+                      {/* LED strip on hover */}
+                      <div className="led-strip absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100" />
+
+                      {/* Default text */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-7 transition-opacity duration-500 group-hover:opacity-0">
+                        <p className="text-xs uppercase tracking-[0.25em] text-electric">{p.tag}</p>
+                        <h3 className="mt-2 text-2xl font-light">{p.name}</h3>
+                        <p className="mt-1 text-sm text-muted-foreground">{p.spec}</p>
+                      </div>
+
+                      {/* Hover stats */}
+                      <div className="absolute inset-0 flex flex-col justify-end gap-3 bg-gradient-to-t from-card via-card/85 to-transparent p-7 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                        <p className="text-xs uppercase tracking-[0.25em] text-electric">{p.tag}</p>
+                        <h3 className="text-2xl font-light">{p.name}</h3>
+                        <div className="grid grid-cols-2 gap-3 text-xs">
+                          <Stat label="CO₂ saved" value={p.co2} />
+                          <Stat label="Trees / yr" value={p.trees} />
+                        </div>
+                      </div>
                     </div>
-                  </motion.div>
+                  </TiltCard>
                 </Link>
               </Reveal>
             ))}
@@ -305,8 +353,10 @@ function HomePage() {
       <section className="relative overflow-hidden py-20 sm:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 md:grid-cols-2 md:gap-16">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-electric">Smart Charging Ecosystem</p>
-            <h2 className="mt-4 text-balance text-4xl font-extralight tracking-tight sm:text-5xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-electric">
+              Smart Charging Ecosystem
+            </p>
+            <h2 className="mt-4 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
               Hardware, software, and intelligence — in concert.
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
@@ -315,7 +365,12 @@ function HomePage() {
               app, in your pocket.
             </p>
             <ul className="mt-8 space-y-3 text-sm">
-              {["Mobile app & remote control", "Live energy analytics", "Smart scheduling & solar sync", "Tap-to-pay & fleet billing"].map((f) => (
+              {[
+                "Mobile app & remote control",
+                "Live energy analytics",
+                "Smart scheduling & solar sync",
+                "Tap-to-pay & fleet billing",
+              ].map((f) => (
                 <li key={f} className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_12px_var(--electric)]" />
                   <span className="text-muted-foreground">{f}</span>
@@ -345,7 +400,7 @@ function HomePage() {
       </section>
 
       {/* CANOPY BANNER */}
-      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[60vh] min-h-[380px] overflow-hidden">
         <motion.img
           initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
@@ -361,7 +416,7 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
         <div className="relative mx-auto flex h-full max-w-5xl items-center px-5 sm:px-6">
           <Reveal>
-            <p className="max-w-2xl text-balance text-3xl font-extralight italic leading-tight text-card sm:text-5xl md:text-6xl">
+            <p className="max-w-2xl text-balance text-2xl font-extralight italic leading-tight text-card sm:text-5xl md:text-6xl">
               "The best time to plant a tree was twenty years ago.
               <br />
               <span className="text-electric-gradient not-italic">The second best time is now.</span>"
@@ -370,12 +425,23 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-20 sm:py-32">
-        <div className="absolute inset-0 bg-radial-electric opacity-70" />
+      {/* FINAL CTA — sunset → morning */}
+      <section className="relative overflow-hidden py-20 sm:py-32">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, oklch(0.94 0.06 65) 0%, oklch(0.96 0.04 110) 50%, var(--background) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 -z-10 bg-radial-electric opacity-50" />
+        <OrganicBlob className="-left-40 top-20 h-[500px] w-[500px]" opacity={0.18} />
+        <OrganicBlob className="-right-40 bottom-0 h-[500px] w-[500px]" opacity={0.14} />
+
         <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
           <Reveal>
-            <h2 className="text-balance text-5xl font-extralight tracking-tight sm:text-6xl">
+            <p className="text-xs uppercase tracking-[0.4em] text-electric">A new dawn</p>
+            <h2 className="mt-5 text-balance text-4xl font-extralight tracking-tight sm:text-7xl">
               Charge into <span className="text-electric-gradient italic">tomorrow.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
@@ -383,16 +449,25 @@ function HomePage() {
               workplace, or across your network.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link to="/contact" hash="brochure" className="rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.03]">
+              <RippleLink to="/contact" hash="brochure" variant="primary">
                 Download Brochure
-              </Link>
-              <Link to="/products" className="rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-electric">
+              </RippleLink>
+              <RippleLink to="/products" variant="ghost">
                 Explore Products
-              </Link>
+              </RippleLink>
             </div>
           </Reveal>
         </div>
       </section>
+    </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-border bg-surface/60 px-3 py-2.5">
+      <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
+      <p className="mt-0.5 text-base font-light text-foreground">{value}</p>
     </div>
   );
 }

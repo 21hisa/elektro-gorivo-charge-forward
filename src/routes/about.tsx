@@ -1,9 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { Counter } from "@/components/Counter";
-import natureHero from "@/assets/nature-hero.jpg";
+import { LightRays } from "@/components/LightRays";
+import { RippleLink } from "@/components/RippleButton";
+import forestHero from "@/assets/forest-hero-cinematic.jpg";
 import youngTree from "@/assets/young-tree.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -13,7 +15,7 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Elektro Gorivo is building the silent infrastructure of clean mobility — premium EV charging that grows the planet, not the carbon count." },
       { property: "og:title", content: "About — Elektro Gorivo" },
       { property: "og:description", content: "Building the silent infrastructure of clean mobility." },
-      { property: "og:image", content: natureHero },
+      { property: "og:image", content: forestHero },
     ],
   }),
   component: AboutPage,
@@ -40,12 +42,13 @@ function AboutPage() {
       {/* HERO */}
       <section className="relative h-[80vh] min-h-[500px] overflow-hidden sm:h-[90vh] sm:min-h-[600px]">
         <img
-          src={natureHero}
-          alt="Sunlit forest road"
+          src={forestHero}
+          alt="Sunlit ancient forest"
           width={1920}
-          height={1080}
+          height={1280}
           className="absolute inset-0 h-full w-full object-cover"
         />
+        <LightRays intensity={0.7} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         <FloatingLeaves density="light" />
         <div className="relative mx-auto flex h-full max-w-5xl items-end px-5 pb-14 sm:px-6 sm:pb-20">
@@ -175,12 +178,11 @@ function AboutPage() {
           <p className="mx-auto mt-4 max-w-md text-muted-foreground">
             Partner, install, or simply say hello.
           </p>
-          <Link
-            to="/contact"
-            className="mt-8 inline-flex rounded-full bg-electric px-6 py-3 text-sm font-medium text-accent-foreground shadow-glow"
-          >
-            Start a conversation
-          </Link>
+          <div className="mt-8 inline-flex">
+            <RippleLink to="/contact" variant="primary">
+              Start a conversation
+            </RippleLink>
+          </div>
         </Reveal>
       </section>
     </div>
