@@ -1,7 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
+import { TiltCard } from "@/components/TiltCard";
+import { RippleLink } from "@/components/RippleButton";
 import naya30 from "@/assets/products/naya-30kw.jpg";
 import naya60 from "@/assets/products/naya-60kw.jpg";
 import naya120 from "@/assets/products/naya-120kw.jpg";
@@ -157,18 +159,21 @@ function ProductsPage() {
                   i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative">
+                <div className="relative" style={{ perspective: 1400 }}>
                   <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-electric/10 blur-3xl" />
-                  <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-elevated">
-                    <img
-                      src={c.img}
-                      alt={`${c.name} ${c.power} EV charger`}
-                      width={1280}
-                      height={1280}
-                      loading="lazy"
-                      className="aspect-square w-full object-contain p-8 transition-transform duration-[1500ms] ease-out hover:scale-[1.04]"
-                    />
-                  </div>
+                  <TiltCard className="group" intensity={6}>
+                    <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-elevated">
+                      <img
+                        src={c.img}
+                        alt={`${c.name} ${c.power} EV charger`}
+                        width={1280}
+                        height={1280}
+                        loading="lazy"
+                        className="aspect-square w-full object-contain p-8 transition-transform duration-[1500ms] ease-out group-hover:scale-[1.04]"
+                      />
+                      <div className="led-strip absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100" />
+                    </div>
+                  </TiltCard>
                 </div>
 
                 <div>
@@ -197,13 +202,9 @@ function ProductsPage() {
                   </ul>
 
                   <div className="mt-10">
-                    <Link
-                      to="/contact"
-                      hash="brochure"
-                      className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-electric hover:text-electric"
-                    >
+                    <RippleLink to="/contact" hash="brochure" variant="ghost">
                       Download brochure →
-                    </Link>
+                    </RippleLink>
                   </div>
                 </div>
               </div>
