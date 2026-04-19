@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
+import { RippleButton } from "@/components/RippleButton";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -82,12 +83,9 @@ function ContactPage() {
                   <Field label="Message">
                     <textarea required rows={5} placeholder="Tell us about your project…" className="field resize-none" />
                   </Field>
-                  <button
-                    type="submit"
-                    className="w-full rounded-full bg-electric py-3.5 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.01]"
-                  >
+                  <RippleButton type="submit" variant="primary" className="w-full">
                     Send message
-                  </button>
+                  </RippleButton>
                 </div>
               )}
             </form>
@@ -188,12 +186,9 @@ function ContactPage() {
                       <option value="ultra">Ultra-fast (240 – 360 kW)</option>
                     </select>
                   </Field>
-                  <button
-                    type="submit"
-                    className="w-full rounded-full bg-electric py-3.5 text-sm font-medium text-accent-foreground shadow-glow transition-transform hover:scale-[1.01]"
-                  >
+                  <RippleButton type="submit" variant="primary" className="w-full">
                     Send me the brochure
-                  </button>
+                  </RippleButton>
                   <p className="text-center text-[11px] text-muted-foreground">
                     By submitting, you agree to receive product information from Elektro Gorivo.
                   </p>
