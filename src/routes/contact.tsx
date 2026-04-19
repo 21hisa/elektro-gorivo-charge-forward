@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { OrganicBlob } from "@/components/OrganicBlob";
+import { FloatingLeaves } from "@/components/FloatingLeaves";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -20,14 +22,16 @@ function ContactPage() {
 
   return (
     <div>
-      <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-16">
+      <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16">
         <div className="absolute inset-0 bg-radial-electric opacity-50" />
+        <OrganicBlob className="-left-32 top-10 h-[450px] w-[450px]" opacity={0.12} />
+        <FloatingLeaves density="light" />
         <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">Contact</p>
             <h1 className="mt-5 text-balance text-4xl font-extralight tracking-tight sm:text-6xl md:text-7xl">
               <span className="text-gradient">Let's </span>
-              <span className="text-electric-gradient italic">talk power.</span>
+              <span className="text-electric-gradient italic">grow together.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-sm text-muted-foreground sm:text-base">
               Whether you're charging one car or commissioning one thousand — our team

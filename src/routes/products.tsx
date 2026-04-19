@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
+import { OrganicBlob } from "@/components/OrganicBlob";
+import { FloatingLeaves } from "@/components/FloatingLeaves";
 import naya30 from "@/assets/products/naya-30kw.jpg";
 import naya60 from "@/assets/products/naya-60kw.jpg";
 import naya120 from "@/assets/products/naya-120kw.jpg";
@@ -125,8 +127,11 @@ function ProductsPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-20">
+      <section className="relative overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-20">
         <div className="absolute inset-0 bg-radial-electric opacity-60" />
+        <OrganicBlob className="-left-32 top-10 h-[500px] w-[500px]" opacity={0.15} />
+        <OrganicBlob className="-right-32 top-40 h-[500px] w-[500px]" opacity={0.1} />
+        <FloatingLeaves density="light" />
         <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">The Range</p>
@@ -136,7 +141,7 @@ function ProductsPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-sm text-muted-foreground sm:text-base">
               From a 30 kW workplace unit to a 360 kW highway flagship — one design language,
-              five power tiers, and a single intelligent ecosystem.
+              five power tiers, and a single intelligent ecosystem rooted in cleaner mobility.
             </p>
           </Reveal>
         </div>
@@ -154,7 +159,7 @@ function ProductsPage() {
               >
                 <div className="relative">
                   <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-electric/10 blur-3xl" />
-                  <div className="overflow-hidden rounded-3xl bg-surface shadow-elevated">
+                  <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-elevated">
                     <img
                       src={c.img}
                       alt={`${c.name} ${c.power} EV charger`}
