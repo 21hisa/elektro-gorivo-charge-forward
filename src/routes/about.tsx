@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
+
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { Counter } from "@/components/Counter";
 import { LightRays } from "@/components/LightRays";
@@ -50,7 +50,7 @@ function AboutPage() {
         />
         <LightRays intensity={0.7} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
-        <FloatingLeaves density="light" />
+        
         <div className="relative mx-auto flex h-full max-w-5xl items-end px-5 pb-14 sm:px-6 sm:pb-20">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">About Elektro Gorivo</p>

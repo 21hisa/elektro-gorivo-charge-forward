@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
+
 import { TiltCard } from "@/components/TiltCard";
 import { RippleLink } from "@/components/RippleButton";
 import naya30 from "@/assets/products/naya-30kw.jpg";
@@ -133,7 +133,7 @@ function ProductsPage() {
         <div className="absolute inset-0 bg-radial-electric opacity-60" />
         <OrganicBlob className="-left-32 top-10 h-[500px] w-[500px]" opacity={0.15} />
         <OrganicBlob className="-right-32 top-40 h-[500px] w-[500px]" opacity={0.1} />
-        <FloatingLeaves density="light" />
+        
         <div className="relative mx-auto max-w-5xl px-5 text-center sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">The Range</p>
