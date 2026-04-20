@@ -3,16 +3,18 @@ import { Link } from "@tanstack/react-router";
 
 type Ripple = { x: number; y: number; id: number };
 
-type Variant = "primary" | "ghost";
+type Variant = "primary" | "ghost" | "light";
 
 const base =
-  "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-transform duration-300 ease-out will-change-transform hover:-translate-y-0.5 active:translate-y-0";
+  "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 active:translate-y-0";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-electric text-accent-foreground shadow-glow hover:shadow-[0_0_50px_-5px_var(--electric)]",
+    "bg-electric text-accent-foreground shadow-[0_10px_30px_-8px_var(--electric)] hover:shadow-[0_18px_45px_-8px_var(--electric)]",
   ghost:
-    "border border-border bg-card/50 text-foreground backdrop-blur-md hover:border-electric hover:text-electric",
+    "border border-border bg-card/60 text-foreground backdrop-blur-md hover:border-electric hover:text-electric",
+  light:
+    "bg-white text-[#0B0F0C] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)] hover:shadow-[0_18px_45px_-10px_rgba(0,0,0,0.45)]",
 };
 
 function useRipples() {

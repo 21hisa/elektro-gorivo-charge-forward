@@ -62,65 +62,90 @@ function HomePage() {
     <div className="overflow-hidden">
       {/* HERO */}
       <ParallaxHero>
-        <div className="mx-auto max-w-7xl px-5 text-center sm:px-6">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-[10px] uppercase tracking-[0.4em] text-electric sm:text-xs"
-          >
-            Elektro Gorivo · Charging the Forest
-          </motion.p>
+        <div className="mx-auto grid max-w-7xl px-5 sm:px-6 md:grid-cols-2">
+          <div className="max-w-xl text-left">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.3em] text-white backdrop-blur-md sm:text-xs"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#00E676] shadow-[0_0_10px_#00E676]" />
+              Elektro Gorivo · Evergreen EV
+            </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance mt-5 text-[2.25rem] font-extralight leading-[1.05] tracking-tight sm:mt-6 sm:text-7xl md:text-[5.5rem]"
-          >
-            <span className="text-gradient">Every charge breathes</span>
-            <br />
-            <span className="text-electric-gradient italic font-light">life back into the planet.</span>
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="text-balance mt-6 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] sm:text-6xl md:text-7xl"
+            >
+              Every charge powers a{" "}
+              <span className="bg-gradient-to-r from-[#00E676] to-[#7CFFB2] bg-clip-text text-transparent">
+                cleaner future.
+              </span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.05 }}
-            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-foreground/80 sm:mt-8 sm:text-lg"
-          >
-            Premium EV chargers engineered for cleaner air, quieter cities, and a
-            sustainable future — quietly heroic, deeply rooted.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.85 }}
+              className="mt-5 max-w-md text-base font-medium leading-relaxed text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] sm:mt-7 sm:text-lg"
+            >
+              Premium EV chargers engineered for cleaner air, quieter cities,
+              and a sustainable future.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.25 }}
-            className="mt-9 flex flex-wrap items-center justify-center gap-3 sm:mt-12"
-          >
-            <RippleLink to="/products" variant="primary">
-              Explore the Range →
-            </RippleLink>
-            <RippleLink to="/contact" hash="brochure" variant="ghost">
-              See Your Impact
-            </RippleLink>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.05 }}
+              className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10"
+            >
+              <RippleLink to="/products" variant="primary">
+                Explore Chargers →
+              </RippleLink>
+              <RippleLink to="/contact" hash="brochure" variant="light">
+                See Your Impact
+              </RippleLink>
+            </motion.div>
+
+            {/* Trust strip */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-medium text-white/80 sm:mt-12"
+            >
+              <span className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
+                99.9% Network uptime
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
+                100% Renewable-ready
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
+                Solar-sync intelligence
+              </span>
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll cue */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
+          transition={{ delay: 1.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 sm:bottom-10"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-10 w-6 items-start justify-center rounded-full border border-foreground/30 p-1.5"
+            className="flex h-10 w-6 items-start justify-center rounded-full border border-white/40 p-1.5 backdrop-blur-sm"
           >
-            <span className="h-2 w-1 rounded-full bg-electric" />
+            <span className="h-2 w-1 rounded-full bg-[#00E676] shadow-[0_0_8px_#00E676]" />
           </motion.div>
         </motion.div>
       </ParallaxHero>
