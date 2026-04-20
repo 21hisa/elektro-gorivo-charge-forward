@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { LightRays } from "./LightRays";
-import { FloatingLeaves } from "./FloatingLeaves";
 import forestHero from "@/assets/forest-hero-cinematic.jpg";
 
 /**
@@ -21,8 +20,8 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
 
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "20%"]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.08]);
-  const fogOpacity = useTransform(scrollYProgress, [0, 0.6], [0.35, 0]);
-  const rayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 1]);
+  const fogOpacity = useTransform(scrollYProgress, [0, 0.6], [0.15, 0]);
+  const rayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.55, 1]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
 
   return (
@@ -39,8 +38,9 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
           height={1280}
           className="h-full w-full object-cover"
         />
-        {/* Base wash for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/20 to-background" />
+        {/* Soft directional wash — preserves image vibrance, ensures text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
       </motion.div>
 
       {/* Light rays — intensify on scroll */}
@@ -48,16 +48,14 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
         <LightRays />
       </motion.div>
 
-      {/* Fog overlay — clears on scroll */}
+      {/* Subtle atmospheric haze — clears on scroll, no longer washes out */}
       <motion.div
         style={{ opacity: fogOpacity }}
         aria-hidden
         className="absolute inset-0 -z-10"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent" />
       </motion.div>
-
-      <FloatingLeaves />
 
       <motion.div style={{ y: contentY }} className="relative w-full">
         {children}

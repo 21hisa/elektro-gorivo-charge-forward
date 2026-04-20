@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
+
 import { RippleButton } from "@/components/RippleButton";
 
 export const Route = createFileRoute("/contact")({
@@ -26,7 +26,7 @@ function ContactPage() {
       <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16">
         <div className="absolute inset-0 bg-radial-electric opacity-50" />
         <OrganicBlob className="-left-32 top-10 h-[450px] w-[450px]" opacity={0.12} />
-        <FloatingLeaves density="light" />
+        
         <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.4em] text-electric">Contact</p>
