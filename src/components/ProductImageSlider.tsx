@@ -39,8 +39,8 @@ export function ProductImageSlider({
       onTouchEnd={onTouchEnd}
     >
       <div
-        className="flex transition-transform duration-700 ease-out"
-        style={{ transform: `translateX(-${idx * 100}%)` }}
+        className="flex transition-transform duration-700 ease-out will-change-transform"
+        style={{ transform: `translate3d(-${idx * 100}%, 0, 0)` }}
       >
         {images.map((img, i) => (
           <img
