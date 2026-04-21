@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
-import { TiltCard } from "@/components/TiltCard";
 import { RippleLink } from "@/components/RippleButton";
 import { ProductImageSlider } from "@/components/ProductImageSlider";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -16,6 +15,8 @@ import real30 from "@/assets/products/eg-30-real.jpg";
 import real60 from "@/assets/products/eg-60-real.jpg";
 import real80 from "@/assets/products/eg-80-real.jpg";
 import real120 from "@/assets/products/eg-120-real.jpg";
+import real180 from "@/assets/products/eg-180-real.jpg";
+import real360 from "@/assets/products/eg-360-real.jpg";
 import angle1 from "@/assets/products/eg-angle-1.jpg";
 
 export const Route = createFileRoute("/products")({
@@ -316,45 +317,118 @@ const products: Product[] = [
     ]),
   },
   {
+    tag: "Standalone High-Power",
+    name: "EG-DC 180",
+    power: "180 kW",
+    mpn: "1010-0015",
+    tagline: "High efficiency. Reliable, stable performance.",
+    description:
+      "A high-power DC fast charger engineered for hubs and depots. Dual CCS 2 outputs, 250 A peak per gun, and full ISO 15118 Plug & Charge support in a robust ground-mount enclosure.",
+    images: [
+      { src: real180, alt: "EG-DC 180 kW front view" },
+      { src: naya240, alt: "EG-DC 180 kW alternate render" },
+    ],
+    specs: [
+      { l: "Output Power", v: "180 kW DC" },
+      { l: "Voltage", v: "200 – 1000 V DC" },
+      { l: "Connectors", v: "Dual CCS 2" },
+      { l: "Install", v: "Ground Mounted" },
+    ],
+    features: sharedFeatures,
+    technical: commonTechnical([
+      {
+        group: "AC Input",
+        rows: [
+          { k: "Voltage", v: "415 / 480 V AC ±10%" },
+          { k: "Frequency", v: "50 / 60 Hz ±10%" },
+          { k: "Wiring", v: "3P + N + PE" },
+        ],
+      },
+      {
+        group: "DC Output",
+        rows: [
+          { k: "Power", v: "180 kW" },
+          { k: "Voltage", v: "200 – 1000 V DC" },
+          { k: "Max current", v: "250 A" },
+          { k: "Outlets", v: "CCS 2 + CCS 2" },
+        ],
+      },
+      {
+        group: "Mechanical",
+        rows: [
+          { k: "Dimensions (HxWxD)", v: "1767 × 941 × 710 mm" },
+          { k: "Weight", v: "< 350 kg" },
+          { k: "Cable", v: "Standard 5 m · Optional 7 m · Cable management optional" },
+        ],
+      },
+      {
+        group: "Environment",
+        rows: [
+          { k: "Operation Temp.", v: "−30°C to +55°C" },
+          { k: "Storage Temp.", v: "−40°C to +80°C" },
+          { k: "Humidity", v: "5% to 95%" },
+          { k: "Altitude", v: "< 2000 m" },
+          { k: "Noise", v: "< 60 dB (A)" },
+          { k: "Warranty", v: "3 years" },
+        ],
+      },
+    ]),
+  },
+  {
     tag: "Hyper Charger",
     name: "EG-DC 360",
     power: "360 kW",
+    mpn: "1010-0022",
     tagline: "The flagship. A full charge in a coffee break.",
     description:
-      "Our flagship ultra-fast charger built for highways and high-volume hubs. Liquid-cooled 500 A cables, ISO 15118 Plug & Charge, and 24/7 cloud monitoring.",
+      "Our flagship ultra-fast DC charger built for highways and high-volume hubs. Dual CCS 2 outputs, ISO 15118 Plug & Charge, and 24/7 cloud-managed operation.",
     images: [
+      { src: real360, alt: "EG-DC 360 kW front view" },
       { src: naya360, alt: "EG-DC 360 kW angle render" },
       { src: naya240, alt: "EG-DC 360 kW alternate render" },
     ],
     specs: [
       { l: "Output Power", v: "360 kW DC" },
       { l: "Voltage", v: "200 – 1000 V DC" },
-      { l: "Connectors", v: "Dual CCS 2 · 500 A liquid-cooled" },
-      { l: "Standards", v: "CE · IEC 61851 · IEC 61000" },
+      { l: "Connectors", v: "Dual CCS 2" },
+      { l: "Install", v: "Ground Mounted" },
     ],
-    features: [
-      "ISO 15118 Plug & Charge",
-      "Up to 480 kW configurable stack",
-      "Integrated MID metering",
-      "24/7 cloud monitoring",
-      "5-year extendable warranty",
-      ...sharedFeatures.slice(0, 4),
-    ],
+    features: sharedFeatures,
     technical: commonTechnical([
+      {
+        group: "AC Input",
+        rows: [
+          { k: "Voltage", v: "415 / 480 V AC ±10%" },
+          { k: "Frequency", v: "50 / 60 Hz ±10%" },
+          { k: "Wiring", v: "3P + N + PE" },
+        ],
+      },
       {
         group: "DC Output",
         rows: [
-          { k: "Power", v: "360 kW (configurable to 480 kW)" },
+          { k: "Power", v: "360 kW" },
           { k: "Voltage", v: "200 – 1000 V DC" },
-          { k: "Connectors", v: "Dual CCS 2, 500 A liquid-cooled" },
-          { k: "Charge time", v: "10 – 80% in ~18 min" },
+          { k: "Max current", v: "250 A" },
+          { k: "Outlets", v: "CCS 2 + CCS 2" },
         ],
       },
       {
         group: "Mechanical",
         rows: [
-          { k: "Install", v: "Ground Mounted" },
-          { k: "Cooling", v: "Liquid-cooled power modules & cables" },
+          { k: "Dimensions (HxWxD)", v: "1767 × 941 × 950 mm" },
+          { k: "Weight", v: "< 400 kg" },
+          { k: "Cable", v: "Standard 5 m · Optional 7 m · Cable management optional" },
+        ],
+      },
+      {
+        group: "Environment",
+        rows: [
+          { k: "Operation Temp.", v: "−30°C to +55°C" },
+          { k: "Storage Temp.", v: "−40°C to +80°C" },
+          { k: "Humidity", v: "5% to 95%" },
+          { k: "Altitude", v: "< 2000 m" },
+          { k: "Noise", v: "< 60 dB (A)" },
+          { k: "Warranty", v: "3 years" },
         ],
       },
     ]),
@@ -397,14 +471,12 @@ function ProductsPage() {
                   i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative" style={{ perspective: 1400 }}>
+                <div className="relative">
                   <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-electric/10 blur-3xl" />
-                  <TiltCard className="group" intensity={4}>
-                    <ProductImageSlider
-                      images={c.images}
-                      className="shadow-elevated"
-                    />
-                  </TiltCard>
+                  <ProductImageSlider
+                    images={c.images}
+                    className="shadow-elevated"
+                  />
                 </div>
 
                 <div>
