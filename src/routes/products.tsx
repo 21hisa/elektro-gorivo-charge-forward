@@ -109,9 +109,11 @@ const products: Product[] = [
     description:
       "A reliable, efficient, and convenient charging solution designed for workplaces, retail, and light commercial use. Compact wall or pedestal mount with full smart connectivity.",
     images: [
-      { src: real30, alt: "EG-DC 30 kW front view" },
-      { src: naya30, alt: "EG-DC 30 kW angle render" },
-      { src: angle1, alt: "EG-DC 30 kW detail view" },
+      { src: eg30Front, alt: "EG-DC 30 kW front view" },
+      { src: eg30Perspective, alt: "EG-DC 30 kW perspective view" },
+      { src: eg30Left, alt: "EG-DC 30 kW left side view" },
+      { src: eg30Right, alt: "EG-DC 30 kW right side view" },
+      { src: eg30Back, alt: "EG-DC 30 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "30 kW DC" },
@@ -168,8 +170,11 @@ const products: Product[] = [
     description:
       "A standalone DC fast charger built for fleets, hubs, and urban networks — dual CCS 2 outputs, intelligent power sharing, and a refined operator experience.",
     images: [
-      { src: real60, alt: "EG-DC 60 kW front view" },
-      { src: naya60, alt: "EG-DC 60 kW angle render" },
+      { src: eg60Front, alt: "EG-DC 60 kW front view" },
+      { src: eg60Perspective, alt: "EG-DC 60 kW perspective view" },
+      { src: eg60Left, alt: "EG-DC 60 kW left side view" },
+      { src: eg60Right, alt: "EG-DC 60 kW right side view" },
+      { src: eg60Back, alt: "EG-DC 60 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "60 kW DC" },
@@ -226,8 +231,11 @@ const products: Product[] = [
     description:
       "Ground-mounted DC fast charger with dual CCS 2 outputs, modular architecture, and optional cable management — a versatile workhorse for commercial deployments.",
     images: [
-      { src: real80, alt: "EG-DC 80 kW front view" },
-      { src: naya120, alt: "EG-DC 80 kW alternate render" },
+      { src: eg80Front, alt: "EG-DC 80 kW front view" },
+      { src: eg80Perspective, alt: "EG-DC 80 kW perspective view" },
+      { src: eg80Left, alt: "EG-DC 80 kW left side view" },
+      { src: eg80Right, alt: "EG-DC 80 kW right side view" },
+      { src: eg80Back, alt: "EG-DC 80 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "80 kW DC" },
