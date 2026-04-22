@@ -6,18 +6,36 @@ import { RippleLink } from "@/components/RippleButton";
 import { ProductImageSlider } from "@/components/ProductImageSlider";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
-import naya30 from "@/assets/products/naya-30kw.jpg";
-import naya60 from "@/assets/products/naya-60kw.jpg";
-import naya120 from "@/assets/products/naya-120kw.jpg";
-import naya240 from "@/assets/products/naya-240kw.jpg";
-import naya360 from "@/assets/products/naya-360kw.jpg";
-import real30 from "@/assets/products/eg-30-real.jpg";
-import real60 from "@/assets/products/eg-60-real.jpg";
-import real80 from "@/assets/products/eg-80-real.jpg";
-import real120 from "@/assets/products/eg-120-real.jpg";
-import real180 from "@/assets/products/eg-180-real.jpg";
-import real360 from "@/assets/products/eg-360-real.jpg";
-import angle1 from "@/assets/products/eg-angle-1.jpg";
+import eg30Front from "@/assets/products/eg-30-front.png";
+import eg30Perspective from "@/assets/products/eg-30-perspective.png";
+import eg30Left from "@/assets/products/eg-30-left.jpg";
+import eg30Right from "@/assets/products/eg-30-right.jpg";
+import eg30Back from "@/assets/products/eg-30-back.jpg";
+import eg60Front from "@/assets/products/eg-60-front.png";
+import eg60Perspective from "@/assets/products/eg-60-perspective.png";
+import eg60Left from "@/assets/products/eg-60-left.jpg";
+import eg60Right from "@/assets/products/eg-60-right.jpg";
+import eg60Back from "@/assets/products/eg-60-back.jpg";
+import eg80Front from "@/assets/products/eg-80-front.png";
+import eg80Perspective from "@/assets/products/eg-80-perspective.png";
+import eg80Left from "@/assets/products/eg-80-left.jpg";
+import eg80Right from "@/assets/products/eg-80-right.jpg";
+import eg80Back from "@/assets/products/eg-80-back.jpg";
+import eg120Front from "@/assets/products/eg-120-front.png";
+import eg120Perspective from "@/assets/products/eg-120-perspective.png";
+import eg120Left from "@/assets/products/eg-120-left.jpg";
+import eg120Right from "@/assets/products/eg-120-right.jpg";
+import eg120Back from "@/assets/products/eg-120-back.jpg";
+import eg180Front from "@/assets/products/eg-180-front.png";
+import eg180Perspective from "@/assets/products/eg-180-perspective.png";
+import eg180Left from "@/assets/products/eg-180-left.jpg";
+import eg180Right from "@/assets/products/eg-180-right.jpg";
+import eg180Back from "@/assets/products/eg-180-back.jpg";
+import eg360Front from "@/assets/products/eg-360-front.png";
+import eg360Perspective from "@/assets/products/eg-360-perspective.png";
+import eg360Left from "@/assets/products/eg-360-left.jpg";
+import eg360Right from "@/assets/products/eg-360-right.jpg";
+import eg360Back from "@/assets/products/eg-360-back.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
