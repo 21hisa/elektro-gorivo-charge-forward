@@ -6,18 +6,36 @@ import { RippleLink } from "@/components/RippleButton";
 import { ProductImageSlider } from "@/components/ProductImageSlider";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
-import naya30 from "@/assets/products/naya-30kw.jpg";
-import naya60 from "@/assets/products/naya-60kw.jpg";
-import naya120 from "@/assets/products/naya-120kw.jpg";
-import naya240 from "@/assets/products/naya-240kw.jpg";
-import naya360 from "@/assets/products/naya-360kw.jpg";
-import real30 from "@/assets/products/eg-30-real.jpg";
-import real60 from "@/assets/products/eg-60-real.jpg";
-import real80 from "@/assets/products/eg-80-real.jpg";
-import real120 from "@/assets/products/eg-120-real.jpg";
-import real180 from "@/assets/products/eg-180-real.jpg";
-import real360 from "@/assets/products/eg-360-real.jpg";
-import angle1 from "@/assets/products/eg-angle-1.jpg";
+import eg30Front from "@/assets/products/eg-30-front.png";
+import eg30Perspective from "@/assets/products/eg-30-perspective.png";
+import eg30Left from "@/assets/products/eg-30-left.jpg";
+import eg30Right from "@/assets/products/eg-30-right.jpg";
+import eg30Back from "@/assets/products/eg-30-back.jpg";
+import eg60Front from "@/assets/products/eg-60-front.png";
+import eg60Perspective from "@/assets/products/eg-60-perspective.png";
+import eg60Left from "@/assets/products/eg-60-left.jpg";
+import eg60Right from "@/assets/products/eg-60-right.jpg";
+import eg60Back from "@/assets/products/eg-60-back.jpg";
+import eg80Front from "@/assets/products/eg-80-front.png";
+import eg80Perspective from "@/assets/products/eg-80-perspective.png";
+import eg80Left from "@/assets/products/eg-80-left.jpg";
+import eg80Right from "@/assets/products/eg-80-right.jpg";
+import eg80Back from "@/assets/products/eg-80-back.jpg";
+import eg120Front from "@/assets/products/eg-120-front.png";
+import eg120Perspective from "@/assets/products/eg-120-perspective.png";
+import eg120Left from "@/assets/products/eg-120-left.jpg";
+import eg120Right from "@/assets/products/eg-120-right.jpg";
+import eg120Back from "@/assets/products/eg-120-back.jpg";
+import eg180Front from "@/assets/products/eg-180-front.png";
+import eg180Perspective from "@/assets/products/eg-180-perspective.png";
+import eg180Left from "@/assets/products/eg-180-left.jpg";
+import eg180Right from "@/assets/products/eg-180-right.jpg";
+import eg180Back from "@/assets/products/eg-180-back.jpg";
+import eg360Front from "@/assets/products/eg-360-front.png";
+import eg360Perspective from "@/assets/products/eg-360-perspective.png";
+import eg360Left from "@/assets/products/eg-360-left.jpg";
+import eg360Right from "@/assets/products/eg-360-right.jpg";
+import eg360Back from "@/assets/products/eg-360-back.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -91,9 +109,11 @@ const products: Product[] = [
     description:
       "A reliable, efficient, and convenient charging solution designed for workplaces, retail, and light commercial use. Compact wall or pedestal mount with full smart connectivity.",
     images: [
-      { src: real30, alt: "EG-DC 30 kW front view" },
-      { src: naya30, alt: "EG-DC 30 kW angle render" },
-      { src: angle1, alt: "EG-DC 30 kW detail view" },
+      { src: eg30Front, alt: "EG-DC 30 kW front view" },
+      { src: eg30Perspective, alt: "EG-DC 30 kW perspective view" },
+      { src: eg30Left, alt: "EG-DC 30 kW left side view" },
+      { src: eg30Right, alt: "EG-DC 30 kW right side view" },
+      { src: eg30Back, alt: "EG-DC 30 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "30 kW DC" },
@@ -150,8 +170,11 @@ const products: Product[] = [
     description:
       "A standalone DC fast charger built for fleets, hubs, and urban networks — dual CCS 2 outputs, intelligent power sharing, and a refined operator experience.",
     images: [
-      { src: real60, alt: "EG-DC 60 kW front view" },
-      { src: naya60, alt: "EG-DC 60 kW angle render" },
+      { src: eg60Front, alt: "EG-DC 60 kW front view" },
+      { src: eg60Perspective, alt: "EG-DC 60 kW perspective view" },
+      { src: eg60Left, alt: "EG-DC 60 kW left side view" },
+      { src: eg60Right, alt: "EG-DC 60 kW right side view" },
+      { src: eg60Back, alt: "EG-DC 60 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "60 kW DC" },
@@ -208,8 +231,11 @@ const products: Product[] = [
     description:
       "Ground-mounted DC fast charger with dual CCS 2 outputs, modular architecture, and optional cable management — a versatile workhorse for commercial deployments.",
     images: [
-      { src: real80, alt: "EG-DC 80 kW front view" },
-      { src: naya120, alt: "EG-DC 80 kW alternate render" },
+      { src: eg80Front, alt: "EG-DC 80 kW front view" },
+      { src: eg80Perspective, alt: "EG-DC 80 kW perspective view" },
+      { src: eg80Left, alt: "EG-DC 80 kW left side view" },
+      { src: eg80Right, alt: "EG-DC 80 kW right side view" },
+      { src: eg80Back, alt: "EG-DC 80 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "80 kW DC" },
@@ -266,9 +292,11 @@ const products: Product[] = [
     description:
       "High-power DC charger engineered for high-throughput sites. Dual CCS 2, robust ground-mount enclosure, and full ISO 15118 Plug & Charge support.",
     images: [
-      { src: real120, alt: "EG-DC 120 kW front view" },
-      { src: naya120, alt: "EG-DC 120 kW angle render" },
-      { src: naya240, alt: "EG-DC 120 kW alternate render" },
+      { src: eg120Front, alt: "EG-DC 120 kW front view" },
+      { src: eg120Perspective, alt: "EG-DC 120 kW perspective view" },
+      { src: eg120Left, alt: "EG-DC 120 kW left side view" },
+      { src: eg120Right, alt: "EG-DC 120 kW right side view" },
+      { src: eg120Back, alt: "EG-DC 120 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "120 kW DC" },
@@ -325,8 +353,11 @@ const products: Product[] = [
     description:
       "A high-power DC fast charger engineered for hubs and depots. Dual CCS 2 outputs, 250 A peak per gun, and full ISO 15118 Plug & Charge support in a robust ground-mount enclosure.",
     images: [
-      { src: real180, alt: "EG-DC 180 kW front view" },
-      { src: naya240, alt: "EG-DC 180 kW alternate render" },
+      { src: eg180Front, alt: "EG-DC 180 kW front view" },
+      { src: eg180Perspective, alt: "EG-DC 180 kW perspective view" },
+      { src: eg180Left, alt: "EG-DC 180 kW left side view" },
+      { src: eg180Right, alt: "EG-DC 180 kW right side view" },
+      { src: eg180Back, alt: "EG-DC 180 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "180 kW DC" },
@@ -383,9 +414,11 @@ const products: Product[] = [
     description:
       "Our flagship ultra-fast DC charger built for highways and high-volume hubs. Dual CCS 2 outputs, ISO 15118 Plug & Charge, and 24/7 cloud-managed operation.",
     images: [
-      { src: real360, alt: "EG-DC 360 kW front view" },
-      { src: naya360, alt: "EG-DC 360 kW angle render" },
-      { src: naya240, alt: "EG-DC 360 kW alternate render" },
+      { src: eg360Front, alt: "EG-DC 360 kW front view" },
+      { src: eg360Perspective, alt: "EG-DC 360 kW perspective view" },
+      { src: eg360Left, alt: "EG-DC 360 kW left side view" },
+      { src: eg360Right, alt: "EG-DC 360 kW right side view" },
+      { src: eg360Back, alt: "EG-DC 360 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "360 kW DC" },

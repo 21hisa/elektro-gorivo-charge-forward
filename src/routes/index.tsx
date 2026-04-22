@@ -12,9 +12,9 @@ import forestHero from "@/assets/forest-hero-cinematic.jpg";
 import forestCanopy from "@/assets/forest-canopy.jpg";
 import chargerHero from "@/assets/charger-hero.jpg";
 import ecosystemApp from "@/assets/ecosystem-app.jpg";
-import naya30 from "@/assets/products/naya-30kw.jpg";
-import naya120 from "@/assets/products/naya-120kw.jpg";
-import naya360 from "@/assets/products/naya-360kw.jpg";
+import eg30Front from "@/assets/products/eg-30-front.png";
+import eg120Front from "@/assets/products/eg-120-front.png";
+import eg360Front from "@/assets/products/eg-360-front.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,9 +52,9 @@ const benefits = [
 ];
 
 const products = [
-  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: naya30, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
-  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: naya120, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
-  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: naya360, tag: "Highway", co2: "9.8t/yr", trees: "445" },
+  { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: eg30Front, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
+  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: eg120Front, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
+  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: eg360Front, tag: "Highway", co2: "9.8t/yr", trees: "445" },
 ];
 
 function HomePage() {
