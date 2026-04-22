@@ -292,9 +292,11 @@ const products: Product[] = [
     description:
       "High-power DC charger engineered for high-throughput sites. Dual CCS 2, robust ground-mount enclosure, and full ISO 15118 Plug & Charge support.",
     images: [
-      { src: real120, alt: "EG-DC 120 kW front view" },
-      { src: naya120, alt: "EG-DC 120 kW angle render" },
-      { src: naya240, alt: "EG-DC 120 kW alternate render" },
+      { src: eg120Front, alt: "EG-DC 120 kW front view" },
+      { src: eg120Perspective, alt: "EG-DC 120 kW perspective view" },
+      { src: eg120Left, alt: "EG-DC 120 kW left side view" },
+      { src: eg120Right, alt: "EG-DC 120 kW right side view" },
+      { src: eg120Back, alt: "EG-DC 120 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "120 kW DC" },
@@ -351,8 +353,11 @@ const products: Product[] = [
     description:
       "A high-power DC fast charger engineered for hubs and depots. Dual CCS 2 outputs, 250 A peak per gun, and full ISO 15118 Plug & Charge support in a robust ground-mount enclosure.",
     images: [
-      { src: real180, alt: "EG-DC 180 kW front view" },
-      { src: naya240, alt: "EG-DC 180 kW alternate render" },
+      { src: eg180Front, alt: "EG-DC 180 kW front view" },
+      { src: eg180Perspective, alt: "EG-DC 180 kW perspective view" },
+      { src: eg180Left, alt: "EG-DC 180 kW left side view" },
+      { src: eg180Right, alt: "EG-DC 180 kW right side view" },
+      { src: eg180Back, alt: "EG-DC 180 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "180 kW DC" },
@@ -409,9 +414,11 @@ const products: Product[] = [
     description:
       "Our flagship ultra-fast DC charger built for highways and high-volume hubs. Dual CCS 2 outputs, ISO 15118 Plug & Charge, and 24/7 cloud-managed operation.",
     images: [
-      { src: real360, alt: "EG-DC 360 kW front view" },
-      { src: naya360, alt: "EG-DC 360 kW angle render" },
-      { src: naya240, alt: "EG-DC 360 kW alternate render" },
+      { src: eg360Front, alt: "EG-DC 360 kW front view" },
+      { src: eg360Perspective, alt: "EG-DC 360 kW perspective view" },
+      { src: eg360Left, alt: "EG-DC 360 kW left side view" },
+      { src: eg360Right, alt: "EG-DC 360 kW right side view" },
+      { src: eg360Back, alt: "EG-DC 360 kW rear view" },
     ],
     specs: [
       { l: "Output Power", v: "360 kW DC" },
