@@ -30,31 +30,31 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const benefits = [
-  {
-    k: "01",
-    title: "Clean",
-    body: "Every kilowatt delivered displaces a litre of fossil fuel — quieter streets, cleaner skies.",
-    Icon: CleanIcon,
-  },
-  {
-    k: "02",
-    title: "Smart",
-    body: "Solar-aware scheduling, dynamic load balancing, and intelligence that learns the grid.",
-    Icon: SmartIcon,
-  },
-  {
-    k: "03",
-    title: "Enduring",
-    body: "Weather-sealed engineering and 99.9% uptime — built to outlast a forest's first decade.",
-    Icon: EnduringIcon,
-  },
-];
-
 const products = [
   { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: eg30Front, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
   { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: eg120Front, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
   { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: eg360Front, tag: "Highway", co2: "9.8t/yr", trees: "445" },
+];
+
+const chargeSteps = [
+  {
+    n: "1",
+    title: "Plug In",
+    body: "Connect your EV to an Elektro Gorivo charger.",
+    kind: "plug",
+  },
+  {
+    n: "2",
+    title: "Start Your Charge",
+    body: "Activate with app, RFID card, or fleet account.",
+    kind: "pay",
+  },
+  {
+    n: "3",
+    title: "Charge Up & Go",
+    body: "Fast, clean energy gets you back on the road.",
+    kind: "go",
+  },
 ];
 
 function HomePage() {
