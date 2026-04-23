@@ -7,7 +7,6 @@ import { Counter } from "@/components/Counter";
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { RippleLink } from "@/components/RippleButton";
 import { TiltCard } from "@/components/TiltCard";
-import { CleanIcon, SmartIcon, EnduringIcon } from "@/components/AnimatedIcons";
 import forestHero from "@/assets/forest-hero-cinematic.jpg";
 import forestCanopy from "@/assets/forest-canopy.jpg";
 import chargerHero from "@/assets/charger-hero.jpg";
@@ -217,50 +216,36 @@ function HomePage() {
         </div>
       </section>
 
-      {/* WHY — animated icons */}
-      <section className="relative py-20 sm:py-32">
-        <OrganicBlob className="-right-40 top-20 h-[600px] w-[600px]" opacity={0.1} />
-        <div
-          className="absolute inset-x-0 top-0 -z-10 h-1/2 opacity-60"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--electric) 6%, transparent), transparent)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+      {/* HOW TO CHARGE */}
+      <section className="relative overflow-hidden border-y border-border bg-background py-20 sm:py-28">
+        <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--electric)_8%,transparent),transparent)]" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Why Elektro Gorivo
-            </p>
-            <h2 className="mt-3 max-w-3xl text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
-              Three principles.{" "}
-              <span className="text-electric-gradient italic">One promise to the planet.</span>
+            <h2 className="text-center text-balance text-4xl font-light tracking-tight text-foreground sm:text-6xl">
+              How to Charge
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 sm:mt-16">
-            {benefits.map((b, i) => {
-              const Icon = b.Icon;
-              return (
-                <Reveal key={b.k} delay={i * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.4 }}
-                    className="group relative h-full overflow-hidden bg-card p-8 transition-colors duration-500 hover:bg-surface-elevated sm:p-10"
-                  >
-                    <div className="flex items-center justify-between">
-                      <Icon />
-                      <p className="font-mono text-xs text-muted-foreground">{b.k}</p>
-                    </div>
-                    <h3 className="mt-8 text-2xl font-light sm:text-3xl">{b.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                      {b.body}
-                    </p>
-                    <div className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-electric transition-transform duration-700 group-hover:scale-x-100" />
-                  </motion.div>
-                </Reveal>
-              );
-            })}
+          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8 lg:mt-20">
+            {chargeSteps.map((step, i) => (
+              <Reveal key={step.n} delay={i * 0.1}>
+                <div className="group relative flex h-full flex-col items-center text-center">
+                  <div className="relative flex h-52 w-full max-w-xs items-center justify-center overflow-hidden rounded-3xl bg-surface/40 transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.02] sm:h-60">
+                    <span className="absolute left-3 top-0 select-none text-[9rem] font-bold leading-none text-muted/25 sm:text-[11rem]">
+                      {step.n}
+                    </span>
+                    <div className="absolute h-32 w-36 rounded-[45%_55%_50%_50%] bg-electric/75 shadow-[0_24px_80px_color-mix(in_oklab,var(--electric)_25%,transparent)]" />
+                    <ChargeStepGraphic kind={step.kind} />
+                  </div>
+                  <h3 className="mt-8 text-2xl font-medium tracking-tight text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 max-w-xs text-base leading-relaxed text-muted-foreground">
+                    {step.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
