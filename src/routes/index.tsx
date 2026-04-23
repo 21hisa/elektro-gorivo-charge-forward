@@ -7,7 +7,6 @@ import { Counter } from "@/components/Counter";
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { RippleLink } from "@/components/RippleButton";
 import { TiltCard } from "@/components/TiltCard";
-import { CleanIcon, SmartIcon, EnduringIcon } from "@/components/AnimatedIcons";
 import forestHero from "@/assets/forest-hero-cinematic.jpg";
 import forestCanopy from "@/assets/forest-canopy.jpg";
 import chargerHero from "@/assets/charger-hero.jpg";
@@ -30,31 +29,31 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const benefits = [
-  {
-    k: "01",
-    title: "Clean",
-    body: "Every kilowatt delivered displaces a litre of fossil fuel — quieter streets, cleaner skies.",
-    Icon: CleanIcon,
-  },
-  {
-    k: "02",
-    title: "Smart",
-    body: "Solar-aware scheduling, dynamic load balancing, and intelligence that learns the grid.",
-    Icon: SmartIcon,
-  },
-  {
-    k: "03",
-    title: "Enduring",
-    body: "Weather-sealed engineering and 99.9% uptime — built to outlast a forest's first decade.",
-    Icon: EnduringIcon,
-  },
-];
-
 const products = [
   { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: eg30Front, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
   { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: eg120Front, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
   { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: eg360Front, tag: "Highway", co2: "9.8t/yr", trees: "445" },
+];
+
+const chargeSteps = [
+  {
+    n: "1",
+    title: "Plug In",
+    body: "Connect your EV to an Elektro Gorivo charger.",
+    kind: "plug",
+  },
+  {
+    n: "2",
+    title: "Start Your Charge",
+    body: "Activate with app, RFID card, or fleet account.",
+    kind: "pay",
+  },
+  {
+    n: "3",
+    title: "Charge Up & Go",
+    body: "Fast, clean energy gets you back on the road.",
+    kind: "go",
+  },
 ];
 
 function HomePage() {
@@ -217,50 +216,36 @@ function HomePage() {
         </div>
       </section>
 
-      {/* WHY — animated icons */}
-      <section className="relative py-20 sm:py-32">
-        <OrganicBlob className="-right-40 top-20 h-[600px] w-[600px]" opacity={0.1} />
-        <div
-          className="absolute inset-x-0 top-0 -z-10 h-1/2 opacity-60"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--electric) 6%, transparent), transparent)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+      {/* HOW TO CHARGE */}
+      <section className="relative overflow-hidden border-y border-border bg-background py-20 sm:py-28">
+        <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--electric)_8%,transparent),transparent)]" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Why Elektro Gorivo
-            </p>
-            <h2 className="mt-3 max-w-3xl text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
-              Three principles.{" "}
-              <span className="text-electric-gradient italic">One promise to the planet.</span>
+            <h2 className="text-center text-balance text-4xl font-light tracking-tight text-foreground sm:text-6xl">
+              How to Charge
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3 sm:mt-16">
-            {benefits.map((b, i) => {
-              const Icon = b.Icon;
-              return (
-                <Reveal key={b.k} delay={i * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.4 }}
-                    className="group relative h-full overflow-hidden bg-card p-8 transition-colors duration-500 hover:bg-surface-elevated sm:p-10"
-                  >
-                    <div className="flex items-center justify-between">
-                      <Icon />
-                      <p className="font-mono text-xs text-muted-foreground">{b.k}</p>
-                    </div>
-                    <h3 className="mt-8 text-2xl font-light sm:text-3xl">{b.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                      {b.body}
-                    </p>
-                    <div className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-electric transition-transform duration-700 group-hover:scale-x-100" />
-                  </motion.div>
-                </Reveal>
-              );
-            })}
+          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8 lg:mt-20">
+            {chargeSteps.map((step, i) => (
+              <Reveal key={step.n} delay={i * 0.1}>
+                <div className="group relative flex h-full flex-col items-center text-center">
+                  <div className="relative flex h-52 w-full max-w-xs items-center justify-center overflow-hidden rounded-3xl bg-surface/40 transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.02] sm:h-60">
+                    <span className="absolute left-3 top-0 select-none text-[9rem] font-bold leading-none text-muted/25 sm:text-[11rem]">
+                      {step.n}
+                    </span>
+                    <div className="absolute h-32 w-36 rounded-[45%_55%_50%_50%] bg-electric/75 shadow-[0_24px_80px_color-mix(in_oklab,var(--electric)_25%,transparent)]" />
+                    <ChargeStepGraphic kind={step.kind} />
+                  </div>
+                  <h3 className="mt-8 text-2xl font-medium tracking-tight text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 max-w-xs text-base leading-relaxed text-muted-foreground">
+                    {step.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -494,5 +479,43 @@ function Stat({ label, value }: { label: string; value: string }) {
       <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
       <p className="mt-0.5 text-base font-light text-foreground">{value}</p>
     </div>
+  );
+}
+
+function ChargeStepGraphic({ kind }: { kind: string }) {
+  if (kind === "plug") {
+    return (
+      <svg viewBox="0 0 220 180" className="relative h-36 w-44 text-foreground" aria-hidden>
+        <path d="M42 142 88 99" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
+        <path d="M76 94h56a18 18 0 0 1 18 18v22a18 18 0 0 1-18 18H76z" className="fill-card stroke-border" strokeWidth="4" />
+        <path d="m74 96-25-4 18 28-18 28 25-5" className="fill-secondary" />
+        <path d="M135 104h14M135 143h14" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (kind === "pay") {
+    return (
+      <svg viewBox="0 0 220 180" className="relative h-40 w-48 text-foreground" aria-hidden>
+        <rect x="62" y="40" width="70" height="108" rx="12" className="fill-card stroke-border" strokeWidth="4" />
+        <rect x="74" y="58" width="46" height="58" rx="6" className="fill-background" />
+        <rect x="92" y="126" width="10" height="10" rx="5" className="fill-electric" />
+        <rect x="119" y="32" width="72" height="46" rx="6" className="fill-foreground" transform="rotate(28 155 55)" />
+        <rect x="127" y="65" width="58" height="12" rx="2" className="fill-electric" transform="rotate(28 156 71)" />
+        <path d="M158 82c22 7 35 20 32 39-3 18-19 28-35 28" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" className="text-secondary" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 220 180" className="relative h-40 w-48 text-foreground" aria-hidden>
+      <path d="M40 129c22-19 41-24 68-16 26 8 45 7 72-15" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" className="text-electric" />
+      <path d="M54 122c9-23 23-35 44-37h35c21 2 34 13 43 37l5 16H49z" className="fill-card stroke-border" strokeWidth="4" />
+      <circle cx="75" cy="139" r="13" className="fill-foreground" />
+      <circle cx="157" cy="139" r="13" className="fill-foreground" />
+      <path d="M178 50h28v94h-28z" className="fill-card stroke-border" strokeWidth="4" />
+      <path d="M185 66h14M185 82h14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M192 110v18" stroke="currentColor" strokeWidth="5" strokeLinecap="round" className="text-electric" />
+    </svg>
   );
 }
