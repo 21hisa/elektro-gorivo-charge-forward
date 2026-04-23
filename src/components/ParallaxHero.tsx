@@ -33,10 +33,6 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
           height={1080}
           className="h-full w-full object-cover"
         />
-        {/* Directional left-side text plate — preserves image vibrance */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F0C]/55 via-[#0B0F0C]/15 to-transparent md:from-[#0B0F0C]/60 md:via-[#0B0F0C]/10" />
-        {/* Bottom anchor for legibility on mobile where image fills frame */}
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
       </motion.div>
 
       <motion.div style={{ y: contentY }} className="relative w-full">

@@ -218,7 +218,6 @@ function HomePage() {
 
       {/* HOW TO CHARGE */}
       <section className="relative overflow-hidden border-y border-border bg-background py-20 sm:py-28">
-        <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--electric)_8%,transparent),transparent)]" />
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
             <h2 className="text-center text-balance text-4xl font-light tracking-tight text-foreground sm:text-6xl">
@@ -271,7 +270,7 @@ function HomePage() {
               className="relative mx-auto mt-12 w-full max-w-4xl sm:mt-14"
             >
               <div className="absolute -inset-10 -z-10 rounded-[3rem] bg-electric/15 blur-3xl" />
-              <div className="relative overflow-hidden rounded-3xl shadow-elevated">
+                <div className="relative overflow-hidden rounded-3xl shadow-elevated">
                 <img
                   src={chargerHero}
                   alt="Elektro Gorivo flagship EV charger"
@@ -423,7 +422,6 @@ function HomePage() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
         <div className="relative mx-auto flex h-full max-w-5xl items-center px-5 sm:px-6">
           <Reveal>
             <p className="max-w-2xl text-balance text-2xl font-extralight italic leading-tight text-card sm:text-5xl md:text-6xl">
@@ -437,14 +435,6 @@ function HomePage() {
 
       {/* FINAL CTA — sunset → morning */}
       <section className="relative overflow-hidden py-20 sm:py-32">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(180deg, oklch(0.94 0.06 65) 0%, oklch(0.96 0.04 110) 50%, var(--background) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 -z-10 bg-radial-electric opacity-50" />
         <OrganicBlob className="-left-40 top-20 h-[500px] w-[500px]" opacity={0.18} />
         <OrganicBlob className="-right-40 bottom-0 h-[500px] w-[500px]" opacity={0.14} />
 
