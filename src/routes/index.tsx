@@ -14,6 +14,9 @@ import ecosystemApp from "@/assets/ecosystem-app.jpg";
 import eg30Front from "@/assets/products/eg-30-front.png";
 import eg120Front from "@/assets/products/eg-120-front.png";
 import eg360Front from "@/assets/products/eg-360-front.png";
+import plugInGraphic from "@/assets/plug_in.svg";
+import startChargeGraphic from "@/assets/start_your_charge.svg";
+import chargeGraphic from "@/assets/charge.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,19 +43,19 @@ const chargeSteps = [
     n: "1",
     title: "Plug In",
     body: "Connect your EV to an Elektro Gorivo charger.",
-    kind: "plug",
+    image: plugInGraphic,
   },
   {
     n: "2",
     title: "Start Your Charge",
     body: "Activate with app, RFID card, or fleet account.",
-    kind: "pay",
+    image: startChargeGraphic,
   },
   {
     n: "3",
     title: "Charge Up & Go",
     body: "Fast, clean energy gets you back on the road.",
-    kind: "go",
+    image: chargeGraphic,
   },
 ];
 
@@ -234,7 +237,14 @@ function HomePage() {
                       {step.n}
                     </span>
                     <div className="absolute h-32 w-36 rounded-[45%_55%_50%_50%] bg-electric/75 shadow-[0_24px_80px_color-mix(in_oklab,var(--electric)_25%,transparent)]" />
-                    <ChargeStepGraphic kind={step.kind} />
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      width={296}
+                      height={258}
+                      loading="lazy"
+                      className="relative h-44 w-auto max-w-[88%] object-contain sm:h-52"
+                    />
                   </div>
                   <h3 className="mt-8 text-2xl font-medium tracking-tight text-foreground">
                     {step.title}
@@ -469,43 +479,5 @@ function Stat({ label, value }: { label: string; value: string }) {
       <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
       <p className="mt-0.5 text-base font-light text-foreground">{value}</p>
     </div>
-  );
-}
-
-function ChargeStepGraphic({ kind }: { kind: string }) {
-  if (kind === "plug") {
-    return (
-      <svg viewBox="0 0 220 180" className="relative h-36 w-44 text-foreground" aria-hidden>
-        <path d="M42 142 88 99" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
-        <path d="M76 94h56a18 18 0 0 1 18 18v22a18 18 0 0 1-18 18H76z" className="fill-card stroke-border" strokeWidth="4" />
-        <path d="m74 96-25-4 18 28-18 28 25-5" className="fill-secondary" />
-        <path d="M135 104h14M135 143h14" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (kind === "pay") {
-    return (
-      <svg viewBox="0 0 220 180" className="relative h-40 w-48 text-foreground" aria-hidden>
-        <rect x="62" y="40" width="70" height="108" rx="12" className="fill-card stroke-border" strokeWidth="4" />
-        <rect x="74" y="58" width="46" height="58" rx="6" className="fill-background" />
-        <rect x="92" y="126" width="10" height="10" rx="5" className="fill-electric" />
-        <rect x="119" y="32" width="72" height="46" rx="6" className="fill-foreground" transform="rotate(28 155 55)" />
-        <rect x="127" y="65" width="58" height="12" rx="2" className="fill-electric" transform="rotate(28 156 71)" />
-        <path d="M158 82c22 7 35 20 32 39-3 18-19 28-35 28" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" className="text-secondary" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 220 180" className="relative h-40 w-48 text-foreground" aria-hidden>
-      <path d="M40 129c22-19 41-24 68-16 26 8 45 7 72-15" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" className="text-electric" />
-      <path d="M54 122c9-23 23-35 44-37h35c21 2 34 13 43 37l5 16H49z" className="fill-card stroke-border" strokeWidth="4" />
-      <circle cx="75" cy="139" r="13" className="fill-foreground" />
-      <circle cx="157" cy="139" r="13" className="fill-foreground" />
-      <path d="M178 50h28v94h-28z" className="fill-card stroke-border" strokeWidth="4" />
-      <path d="M185 66h14M185 82h14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-      <path d="M192 110v18" stroke="currentColor" strokeWidth="5" strokeLinecap="round" className="text-electric" />
-    </svg>
   );
 }
