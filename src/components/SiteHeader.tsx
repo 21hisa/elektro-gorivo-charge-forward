@@ -37,7 +37,7 @@ export function SiteHeader() {
         <Link to="/" className="group flex items-center gap-2.5">
           <img src={logo} alt="" className="h-7 w-auto sm:h-8" />
           <LeafMark className="h-4 w-4 transition-transform duration-500 group-hover:rotate-12" />
-          <span className="text-[11px] font-medium uppercase tracking-[0.22em] sm:text-xs">
+          <span className={`text-[11px] font-medium uppercase tracking-[0.22em] sm:text-xs ${scrolled ? "" : "text-white"}`}>
             Elektro <span className="text-electric">Gorivo</span>
           </span>
         </Link>
@@ -48,8 +48,12 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="group relative rounded-full px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className={`group relative rounded-full px-4 py-1.5 text-sm transition-colors ${
+                scrolled
+                  ? "text-muted-foreground hover:text-foreground"
+                  : "text-white/80 hover:text-white"
+              }`}
+              activeProps={{ className: scrolled ? "text-foreground" : "text-white" }}
             >
               <span className="relative">
                 {item.label}
@@ -60,7 +64,11 @@ export function SiteHeader() {
           <Link
             to="/contact"
             hash="brochure"
-            className="ml-3 rounded-full bg-foreground px-5 py-1.5 text-sm font-medium text-background transition-transform hover:scale-[1.04]"
+            className={`ml-3 rounded-full px-5 py-1.5 text-sm font-medium transition-transform hover:scale-[1.04] ${
+              scrolled
+                ? "bg-foreground text-background"
+                : "bg-white text-background"
+            }`}
           >
             Brochure
           </Link>
@@ -70,7 +78,7 @@ export function SiteHeader() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full p-2 text-foreground md:hidden"
+          className={`rounded-full p-2 md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 17h16" />}
