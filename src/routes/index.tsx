@@ -135,21 +135,6 @@ function HomePage() {
           </div>
         </div>
 
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 sm:bottom-10"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-10 w-6 items-start justify-center rounded-full border border-white/40 p-1.5 backdrop-blur-sm"
-          >
-            <span className="h-2 w-1 rounded-full bg-[#00E676] shadow-[0_0_8px_#00E676]" />
-          </motion.div>
-        </motion.div>
       </ParallaxHero>
 
       {/* IMPACT */}
