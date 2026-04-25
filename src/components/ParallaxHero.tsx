@@ -28,10 +28,19 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
       <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 -z-10">
         <img
           src={forestHero}
-          alt="Premium Elektro Gorivo EV charging station with silver electric car, wind turbines and solar panels at golden hour"
+          alt="Elektro Gorivo EV charging network across India with white electric SUV plugged into a DC fast charger"
           width={1920}
           height={1080}
           className="h-full w-full object-cover"
+        />
+        {/* Left-side dark gradient for text legibility */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 25%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 70%)",
+          }}
         />
       </motion.div>
 
