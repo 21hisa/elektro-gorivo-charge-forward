@@ -50,10 +50,10 @@ export function SiteHeader() {
               activeOptions={{ exact: item.to === "/" }}
               className={`group relative rounded-full px-4 py-1.5 text-sm transition-colors ${
                 scrolled
-                  ? "text-muted-foreground hover:text-foreground"
+                  ? "text-black hover:text-black"
                   : "text-white/80 hover:text-white"
               }`}
-              activeProps={{ className: scrolled ? "text-foreground" : "text-white" }}
+              activeProps={{ className: scrolled ? "text-black" : "text-white" }}
             >
               <span className="relative">
                 {item.label}
@@ -67,7 +67,7 @@ export function SiteHeader() {
             className={`ml-3 rounded-full px-5 py-1.5 text-sm font-medium transition-transform hover:scale-[1.04] ${
               scrolled
                 ? "bg-foreground text-background"
-                : "bg-white text-background"
+                : "bg-black text-white"
             }`}
           >
             Brochure
