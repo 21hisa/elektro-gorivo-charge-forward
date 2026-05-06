@@ -1,6 +1,8 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TopContactBar } from "@/components/TopContactBar";
+import { FloatingContacts } from "@/components/FloatingContacts";
 
 import appCss from "../styles.css?url";
 
@@ -66,11 +68,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <div className="flex min-h-screen flex-col">
+      <TopContactBar />
       <SiteHeader />
       <main className="flex-1">
         <Outlet />
       </main>
       <SiteFooter />
+      <FloatingContacts />
     </div>
   );
 }

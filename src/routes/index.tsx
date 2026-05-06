@@ -5,6 +5,7 @@ import { OrganicBlob } from "@/components/OrganicBlob";
 import { GrowingTree } from "@/components/GrowingTree";
 import { Counter } from "@/components/Counter";
 import { ParallaxHero } from "@/components/ParallaxHero";
+import { RoiCalculator } from "@/components/RoiCalculator";
 import { RippleLink } from "@/components/RippleButton";
 import { TiltCard } from "@/components/TiltCard";
 import forestHero from "@/assets/forest-hero-cinematic.jpg";
@@ -244,7 +245,54 @@ function HomePage() {
         </div>
       </section>
 
-      {/* HARDWARE — dark to light reveal */}
+      {/* ROI CALCULATOR */}
+      <section className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
+        <OrganicBlob className="-right-40 top-10 h-[450px] w-[450px]" opacity={0.12} />
+        <div className="relative mx-auto max-w-5xl px-5 sm:px-6">
+          <Reveal>
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-electric">Plan your station</p>
+              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
+                ROI <span className="text-electric-gradient italic">calculator</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
+                Estimate monthly revenue from a single charger based on usage and pricing.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <RoiCalculator />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* MAP */}
+      <section className="relative py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <Reveal>
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-electric">Network</p>
+              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
+                Find a <span className="text-electric-gradient italic">charging location</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
+                Our growing network spans cities, highways, and fleet hubs across India.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-surface shadow-elevated">
+              <iframe
+                title="Charging locations map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=68.0%2C8.0%2C97.5%2C36.0&layer=mapnik"
+                className="h-[420px] w-full grayscale"
+                loading="lazy"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="relative py-20 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal>
