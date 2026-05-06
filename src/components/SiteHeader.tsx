@@ -99,6 +99,7 @@ export function SiteHeader() {
             {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 17h16" />}
           </svg>
         </button>
+        </div>
       </div>
 
       {open && (
