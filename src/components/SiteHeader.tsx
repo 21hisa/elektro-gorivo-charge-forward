@@ -23,7 +23,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-7 z-50 px-3 transition-all duration-500 sm:px-6 ${
+      className={`fixed inset-x-0 top-0 z-50 px-3 transition-all duration-500 sm:px-6 ${
         scrolled ? "py-2" : "py-4"
       }`}
     >
