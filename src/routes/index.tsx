@@ -293,50 +293,42 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-20 sm:py-32">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+      {/* SETUP PROCESS */}
+      <section className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Hardware</p>
-              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-6xl">
-                Designed quietly. <span className="text-electric-gradient italic">Built loudly.</span>
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-electric">From inquiry to ignition</p>
+              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
+                Setup <span className="text-electric-gradient italic">Process</span>
               </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
+                A guided five-step journey to get your EV charging station live.
+              </p>
             </div>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, filter: "brightness(0.4)" }}
-              whileInView={{ opacity: 1, scale: 1, filter: "brightness(1)" }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto mt-12 w-full max-w-4xl sm:mt-14"
-            >
-              <div className="absolute -inset-10 -z-10 rounded-[3rem] bg-electric/15 blur-3xl" />
-                <div className="relative overflow-hidden rounded-3xl shadow-elevated">
-                <img
-                  src={chargerHero}
-                  alt="Elektro Gorivo flagship EV charger"
-                  width={1920}
-                  height={1080}
-                  loading="lazy"
-                  className="w-full"
-                />
-                {/* LED strip sweep */}
-                <motion.div
-                  aria-hidden
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  whileInView={{ scaleX: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.4, delay: 0.8, ease: "easeOut" }}
-                  style={{ transformOrigin: "left" }}
-                  className="led-strip absolute inset-x-0 bottom-0 h-1"
-                />
-              </div>
-            </motion.div>
-          </Reveal>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+            {[
+              { n: "01", title: "Site Survey", body: "We assess your location, load capacity, and footfall." },
+              { n: "02", title: "Custom Proposal", body: "Tailored charger mix, layout, and ROI projection." },
+              { n: "03", title: "Permits & Grid", body: "End-to-end paperwork and utility coordination." },
+              { n: "04", title: "Installation", body: "Certified engineers install, test, and commission." },
+              { n: "05", title: "Go Live & Support", body: "Onboarding, monitoring, and 24×7 assistance." },
+            ].map((step, i) => (
+              <Reveal key={step.n} delay={i * 0.08}>
+                <div className="group relative h-full rounded-3xl border border-border bg-background/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-electric/40 hover:shadow-elevated">
+                  <p className="text-3xl font-extralight text-electric">{step.n}</p>
+                  <h3 className="mt-4 text-lg font-medium text-foreground">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+                  <span className="absolute inset-x-6 bottom-4 h-px origin-left scale-x-0 bg-electric transition-transform duration-500 group-hover:scale-x-100" />
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* PRODUCT PREVIEW — tilt + LED + stats */}
       <section className="relative py-20 sm:py-32">

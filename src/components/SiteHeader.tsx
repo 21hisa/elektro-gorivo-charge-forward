@@ -23,17 +23,32 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-7 z-50 px-3 transition-all duration-500 sm:px-6 ${
+      className={`fixed inset-x-0 top-0 z-50 px-3 transition-all duration-500 sm:px-6 ${
         scrolled ? "py-2" : "py-4"
       }`}
     >
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-[400ms] ease-in-out sm:px-6 sm:py-3 ${
+        className={`mx-auto max-w-6xl rounded-3xl transition-all duration-[400ms] ease-in-out ${
           scrolled
             ? "border border-border/50 bg-background/60 shadow-elevated backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         }`}
       >
+        <div
+          className={`flex items-center justify-center gap-3 border-b px-4 py-1.5 text-[11px] font-medium tracking-wide sm:text-xs ${
+            scrolled ? "border-border/40 text-foreground" : "border-white/20 text-white"
+          }`}
+        >
+          <span className="inline-flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_10px_var(--electric)]" />
+            <a href="tel:+919000000000" className="hover:underline">
+              Call Now: +91 90000 00000
+            </a>
+          </span>
+          <span className={`hidden sm:inline ${scrolled ? "text-muted-foreground" : "text-white/50"}`}>·</span>
+          <span className="hidden sm:inline">⚡ EV Charging Business Setup Available</span>
+        </div>
+        <div className="flex items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3">
         <Link to="/" className="group flex items-center gap-2.5">
           <img src={logo} alt="" className="h-7 w-auto sm:h-8" />
           <LeafMark className="h-4 w-4 transition-transform duration-500 group-hover:rotate-12" />
@@ -84,6 +99,7 @@ export function SiteHeader() {
             {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 17h16" />}
           </svg>
         </button>
+        </div>
       </div>
 
       {open && (
