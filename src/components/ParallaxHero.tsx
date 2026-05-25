@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
-import forestHero from "@/assets/forest-hero-cinematic.jpg";
+import forestHero from "@/assets/hero-india-network.png";
 
 /**
  * Cinematic EV hero. Crisp, high-contrast — no fog, no wash.
@@ -39,7 +39,7 @@ export function ParallaxHero({ children }: { children: ReactNode }) {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 25%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 70%)",
+              "linear-gradient(to right, rgba(8,20,40,0.65) 0%, rgba(8,20,40,0.4) 25%, rgba(8,20,40,0.15) 50%, rgba(8,20,40,0) 70%)",
           }}
         />
       </motion.div>

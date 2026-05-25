@@ -1,38 +1,45 @@
 import { useMemo, useState } from "react";
+import { Slider } from "@/components/ui/slider";
 
 export function RoiCalculator() {
-  const [sessions, setSessions] = useState<string>("");
-  const [price, setPrice] = useState<string>("");
-  const [units, setUnits] = useState<string>("20");
+  const [sessions, setSessions] = useState<number>(12);
+  const [price, setPrice] = useState<number>(18);
+  const [units, setUnits] = useState<number>(20);
 
-  const monthly = useMemo(() => {
-    const s = Number(sessions);
-    const p = Number(price);
-    const u = Number(units);
-    if (!s || !p || !u || s < 0 || p < 0 || u < 0) return null;
-    return Math.round(s * p * u * 30);
-  }, [sessions, price, units]);
+  const monthly = useMemo(
+    () => Math.round(sessions * price * units * 30),
+    [sessions, price, units],
+  );
 
   return (
-    <div className="glass mx-auto mt-10 grid max-w-3xl gap-5 rounded-3xl p-6 sm:p-10">
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Field
+    <div className="glass mx-auto mt-10 grid max-w-3xl gap-6 rounded-3xl p-6 sm:p-10">
+      <div className="grid gap-6 sm:grid-cols-3">
+        <SliderField
           label="Daily sessions"
           value={sessions}
           onChange={setSessions}
-          placeholder="e.g. 12"
+          min={1}
+          max={60}
+          step={1}
+          format={(v) => `${v}`}
         />
-        <Field
+        <SliderField
           label="Price / unit (₹)"
           value={price}
           onChange={setPrice}
-          placeholder="e.g. 18"
+          min={5}
+          max={40}
+          step={1}
+          format={(v) => `₹${v}`}
         />
-        <Field
+        <SliderField
           label="Units / session"
           value={units}
           onChange={setUnits}
-          placeholder="e.g. 20"
+          min={5}
+          max={60}
+          step={1}
+          format={(v) => `${v}`}
         />
       </div>
 
@@ -40,8 +47,8 @@ export function RoiCalculator() {
         <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
           Estimated monthly revenue
         </p>
-        <p className="mt-2 text-3xl font-extralight tracking-tight text-electric drop-shadow-[0_0_25px_var(--electric-glow)] sm:text-5xl">
-          {monthly !== null ? `₹${monthly.toLocaleString("en-IN")}` : "—"}
+        <p className="mt-2 text-3xl font-extralight tracking-tight text-electric tabular-nums drop-shadow-[0_0_25px_var(--electric-glow)] sm:text-5xl">
+          ₹{monthly.toLocaleString("en-IN")}
         </p>
         <p className="mt-2 text-[11px] text-muted-foreground">
           Indicative. Based on 30 days · sessions × units × price.
@@ -51,32 +58,46 @@ export function RoiCalculator() {
   );
 }
 
-function Field({
+function SliderField({
   label,
   value,
   onChange,
-  placeholder,
+  min,
+  max,
+  step,
+  format,
 }: {
   label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
+  value: number;
+  onChange: (v: number) => void;
+  min: number;
+  max: number;
+  step: number;
+  format: (v: number) => string;
 }) {
   return (
-    <label className="block">
-      <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-        {label}
-      </span>
-      <input
-        type="number"
-        inputMode="numeric"
-        min={0}
-        max={100000}
-        value={value}
-        onChange={(e) => onChange(e.target.value.slice(0, 8))}
-        placeholder={placeholder}
-        className="w-full rounded-2xl border border-border bg-transparent px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted-foreground focus:border-electric focus:outline-none focus:ring-2 focus:ring-[color-mix(in_oklab,var(--electric)_20%,transparent)]"
+    <div>
+      <div className="mb-3 flex items-baseline justify-between gap-2">
+        <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          {label}
+        </span>
+        <span className="text-sm font-medium text-electric tabular-nums">
+          {format(value)}
+        </span>
+      </div>
+      <Slider
+        value={[value]}
+        min={min}
+        max={max}
+        step={step}
+        onValueChange={(v) => onChange(v[0])}
+        aria-label={label}
+        className="focus-visible:outline-none"
       />
-    </label>
+      <div className="mt-2 flex justify-between text-[10px] uppercase tracking-[0.18em] text-muted-foreground tabular-nums">
+        <span>{format(min)}</span>
+        <span>{format(max)}</span>
+      </div>
+    </div>
   );
 }

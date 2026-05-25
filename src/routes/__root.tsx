@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FloatingContacts } from "@/components/FloatingContacts";
+import { MobileQuoteFab } from "@/components/MobileQuoteFab";
 
 import appCss from "../styles.css?url";
 
@@ -79,6 +80,7 @@ function RootComponent() {
       </main>
       <SiteFooter />
       <FloatingContacts />
+      <MobileQuoteFab />
     </div>
   );
 }
