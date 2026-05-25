@@ -37,6 +37,12 @@ export const Route = createRootRoute({
       { name: "author", content: "Elektro Gorivo" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Elektro Gorivo — Powering the Future of Mobility" },
+      { name: "twitter:title", content: "Elektro Gorivo — Powering the Future of Mobility" },
+      { property: "og:description", content: "Premium EV chargers and end-to-end charging solutions. Smart, fast, and engineered for the clean energy era." },
+      { name: "twitter:description", content: "Premium EV chargers and end-to-end charging solutions. Smart, fast, and engineered for the clean energy era." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4b94d30e-82d0-47cb-a88e-be2706ea3382/id-preview-df9eb396--8ccbd3d6-60e4-4a71-945f-45f388facdb3.lovable.app-1778048649703.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4b94d30e-82d0-47cb-a88e-be2706ea3382/id-preview-df9eb396--8ccbd3d6-60e4-4a71-945f-45f388facdb3.lovable.app-1778048649703.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
