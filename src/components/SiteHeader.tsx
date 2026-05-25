@@ -13,9 +13,13 @@ const nav = [
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [promoHidden, setPromoHidden] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      if (window.scrollY > 80) setPromoHidden(true);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -34,20 +38,32 @@ export function SiteHeader() {
             : "border border-transparent bg-transparent"
         }`}
       >
-        <div
-          className={`flex items-center justify-center gap-3 border-b px-4 py-1.5 text-[11px] font-medium tracking-wide sm:text-xs ${
-            scrolled ? "border-border/40 text-foreground" : "border-white/20 text-white"
-          }`}
-        >
-          <span className="inline-flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_10px_var(--electric)]" />
-            <a href="tel:+919000000000" className="hover:underline">
-              Call Now: +91 90000 00000
-            </a>
-          </span>
-          <span className={`hidden sm:inline ${scrolled ? "text-muted-foreground" : "text-white/50"}`}>·</span>
-          <span className="hidden sm:inline">⚡ EV Charging Business Setup Available</span>
-        </div>
+        {!promoHidden && (
+          <div
+            className={`flex items-center justify-center gap-3 border-b px-4 py-1.5 text-[11px] font-medium tracking-wide sm:text-xs ${
+              scrolled ? "border-border/40 text-foreground" : "border-white/20 text-white"
+            }`}
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_10px_var(--electric)]" />
+              <a href="tel:+919000000000" className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded">
+                Call Now: +91 90000 00000
+              </a>
+            </span>
+            <span className={`hidden sm:inline ${scrolled ? "text-muted-foreground" : "text-white/50"}`}>·</span>
+            <span className="hidden sm:inline">⚡ EV Charging Business Setup Available</span>
+            <button
+              type="button"
+              onClick={() => setPromoHidden(true)}
+              aria-label="Dismiss promotional banner"
+              className="ml-2 inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        )}
         <div className="flex items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3">
         <Link to="/" className="group flex items-center gap-2.5">
           <img src={logo} alt="" className="h-7 w-auto sm:h-8" />
