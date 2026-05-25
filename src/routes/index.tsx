@@ -8,7 +8,7 @@ import { ParallaxHero } from "@/components/ParallaxHero";
 import { RoiCalculator } from "@/components/RoiCalculator";
 import { RippleLink } from "@/components/RippleButton";
 import { TiltCard } from "@/components/TiltCard";
-import forestHero from "@/assets/forest-hero-cinematic.jpg";
+import forestHero from "@/assets/hero-india-network.png";
 import forestCanopy from "@/assets/forest-canopy.jpg";
 import chargerHero from "@/assets/charger-hero.jpg";
 import ecosystemApp from "@/assets/ecosystem-app.jpg";
@@ -81,7 +81,8 @@ function HomePage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="text-balance mt-6 text-[2.5rem] font-bold leading-[1.02] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] sm:text-6xl md:text-7xl"
+              className="text-balance mt-6 font-bold leading-[1.02] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]"
+              style={{ fontSize: "clamp(2.25rem, 6vw + 0.5rem, 5rem)" }}
             >
               Every charge powers a{" "}
               <span className="bg-gradient-to-r from-[#00E676] to-[#7CFFB2] bg-clip-text text-transparent">
@@ -225,7 +226,8 @@ function HomePage() {
                     <div className="absolute h-32 w-36 rounded-[45%_55%_50%_50%] bg-electric/75 shadow-[0_24px_80px_color-mix(in_oklab,var(--electric)_25%,transparent)]" />
                     <img
                       src={step.image}
-                      alt={step.title}
+                      alt=""
+                      aria-hidden="true"
                       width={296}
                       height={258}
                       loading="lazy"
@@ -352,9 +354,9 @@ function HomePage() {
           <div className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3" style={{ perspective: 1400 }}>
             {products.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
-                <Link to="/products" className="group block">
-                  <TiltCard className="group">
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-card">
+                <Link to="/products" className="group block focus-visible:outline-none">
+                  <TiltCard className="group transition-transform duration-500 ease-out will-change-transform group-hover:-translate-y-2 group-focus-visible:-translate-y-2">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-card transition-shadow duration-500 group-hover:shadow-[0_40px_80px_-20px_color-mix(in_oklab,var(--electric)_28%,transparent)] group-focus-visible:ring-2 group-focus-visible:ring-electric">
                       <img
                         src={p.img}
                         alt={p.name}
@@ -416,11 +418,19 @@ function HomePage() {
                 "Tap-to-pay & fleet billing",
               ].map((f) => (
                 <li key={f} className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_12px_var(--electric)]" />
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_12px_var(--electric)]" />
                   <span className="text-muted-foreground">{f}</span>
                 </li>
               ))}
             </ul>
+
+            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-electric/40 bg-electric/10 px-3.5 py-1.5 text-xs font-medium text-electric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              Secure Network · ISO 27001 aligned · End-to-end encrypted
+            </div>
           </Reveal>
 
           <Reveal delay={0.15}>
