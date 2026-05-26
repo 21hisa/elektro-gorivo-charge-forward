@@ -295,38 +295,184 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SETUP PROCESS */}
-      <section className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+      {/* SETUP PROCESS — cinematic luxury journey */}
+      <section className="relative overflow-hidden border-y border-border bg-surface/40 py-24 sm:py-32">
+        {/* Ambient radial glows */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
+          style={{ background: "radial-gradient(ellipse at center, color-mix(in oklab, var(--electric) 18%, transparent) 0%, transparent 70%)" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.35] grid-pattern"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 right-0 h-[420px] w-[420px] rounded-full opacity-40 blur-3xl"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--electric-glow) 22%, transparent) 0%, transparent 70%)" }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+          {/* Header */}
           <Reveal>
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-electric">From inquiry to ignition</p>
-              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
-                Setup <span className="text-electric-gradient italic">Process</span>
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="inline-flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-gradient-to-r from-transparent to-electric/70" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-electric/90 sm:text-xs">
+                  From inquiry to ignition
+                </p>
+                <span aria-hidden className="h-px w-8 bg-gradient-to-l from-transparent to-electric/70" />
+              </div>
+              <h2 className="mt-5 text-balance text-4xl font-extralight tracking-tight sm:text-6xl">
+                Setup{" "}
+                <span className="relative italic text-electric-gradient">
+                  Process
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-1 left-0 h-px w-full bg-gradient-to-r from-transparent via-electric to-transparent opacity-70"
+                  />
+                </span>
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-                A guided five-step journey to get your EV charging station live.
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                A guided five-step journey — engineered end-to-end so your charging
+                station goes from concept to current with cinematic precision.
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-            {[
-              { n: "01", title: "Site Survey", body: "We assess your location, load capacity, and footfall." },
-              { n: "02", title: "Custom Proposal", body: "Tailored charger mix, layout, and ROI projection." },
-              { n: "03", title: "Permits & Grid", body: "End-to-end paperwork and utility coordination." },
-              { n: "04", title: "Installation", body: "Certified engineers install, test, and commission." },
-              { n: "05", title: "Go Live & Support", body: "Onboarding, monitoring, and 24×7 assistance." },
-            ].map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.08}>
-                <div className="group relative h-full rounded-3xl border border-border bg-background/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-electric/40 hover:shadow-elevated">
-                  <p className="text-3xl font-extralight text-electric">{step.n}</p>
-                  <h3 className="mt-4 text-lg font-medium text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-                  <span className="absolute inset-x-6 bottom-4 h-px origin-left scale-x-0 bg-electric transition-transform duration-500 group-hover:scale-x-100" />
-                </div>
-              </Reveal>
-            ))}
+          {/* Animated connector line — desktop only */}
+          <div className="relative mt-20">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-0 right-0 top-[68px] hidden lg:block"
+            >
+              <div className="relative mx-auto h-px w-[92%]">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border to-transparent" />
+                <div
+                  className="absolute inset-y-0 left-0 w-full origin-left animate-[led-sweep_6s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-electric to-transparent opacity-80"
+                />
+              </div>
+            </div>
+
+            <ol className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+              {[
+                {
+                  n: "01",
+                  title: "Site Survey",
+                  body: "We assess your location, load capacity, and footfall.",
+                  icon: (
+                    <>
+                      <path d="M12 21s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z" />
+                      <circle cx="12" cy="9" r="2.5" />
+                    </>
+                  ),
+                },
+                {
+                  n: "02",
+                  title: "Custom Proposal",
+                  body: "Tailored charger mix, layout, and ROI projection.",
+                  icon: (
+                    <>
+                      <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+                      <path d="M14 3v5h5" />
+                      <path d="M9 13h6M9 17h4" />
+                    </>
+                  ),
+                },
+                {
+                  n: "03",
+                  title: "Permits & Grid",
+                  body: "End-to-end paperwork and utility coordination.",
+                  icon: (
+                    <>
+                      <path d="M13 2L5 14h6l-1 8 8-12h-6l1-8z" />
+                    </>
+                  ),
+                },
+                {
+                  n: "04",
+                  title: "Installation",
+                  body: "Certified engineers install, test, and commission.",
+                  icon: (
+                    <>
+                      <path d="M14.7 6.3a4 4 0 1 0-5.4 5.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.8 2.8-2-2 2.8-2.8z" />
+                    </>
+                  ),
+                },
+                {
+                  n: "05",
+                  title: "Go Live & Support",
+                  body: "Onboarding, monitoring, and 24×7 assistance.",
+                  icon: (
+                    <>
+                      <circle cx="12" cy="12" r="3" />
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3 12h6M15 12h6M12 3v6M12 15v6" />
+                    </>
+                  ),
+                },
+              ].map((step, i) => (
+                <Reveal key={step.n} delay={i * 0.1}>
+                  <li className="group relative h-full">
+                    {/* Glass card */}
+                    <div className="relative h-full overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-b from-background/80 to-surface/60 p-6 backdrop-blur-xl transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:border-electric/40 group-hover:shadow-[0_30px_60px_-20px_color-mix(in_oklab,var(--electric)_30%,transparent)] sm:p-7">
+                      {/* Inner glow on hover */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          background:
+                            "radial-gradient(120% 80% at 50% 0%, color-mix(in oklab, var(--electric) 12%, transparent) 0%, transparent 60%)",
+                        }}
+                      />
+                      {/* Top hairline */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent opacity-60"
+                      />
+
+                      {/* Numeral badge */}
+                      <div className="relative flex items-center justify-between">
+                        <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-electric/30 bg-background/60 shadow-[inset_0_0_20px_color-mix(in_oklab,var(--electric)_10%,transparent)] transition-all duration-500 group-hover:border-electric/60 group-hover:shadow-[0_0_24px_color-mix(in_oklab,var(--electric)_35%,transparent)]">
+                          <span className="text-[13px] font-light tracking-[0.18em] text-electric">
+                            {step.n}
+                          </span>
+                        </div>
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.25"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden
+                          className="text-electric/70 transition-all duration-500 group-hover:scale-110 group-hover:text-electric group-hover:drop-shadow-[0_0_8px_var(--electric)]"
+                        >
+                          {step.icon}
+                        </svg>
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="relative mt-6 text-lg font-medium tracking-tight text-foreground">
+                        {step.title}
+                      </h3>
+                      <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {step.body}
+                      </p>
+
+                      {/* Progress bar */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-x-7 bottom-5 h-px origin-left scale-x-0 bg-gradient-to-r from-electric/0 via-electric to-electric/0 transition-transform duration-700 ease-out group-hover:scale-x-100"
+                      />
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </div>
       </section>

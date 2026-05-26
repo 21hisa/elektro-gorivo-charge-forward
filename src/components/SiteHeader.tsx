@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "@/assets/logo.png";
 
 const nav = [
@@ -9,32 +9,83 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+/**
+ * Luxury sticky header.
+ * - Single shared container holds the announcement strip + main pill so there
+ *   are no spacing gaps when the strip slides away.
+ * - Scroll-direction detection with a small threshold prevents jitter on
+ *   micro-scrolls. State only flips after passing 6px of movement.
+ * - All visual changes are pure transform / opacity / filter transitions so
+ *   the layout never reflows.
+ */
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [hideStrip, setHideStrip] = useState(false);
   const [open, setOpen] = useState(false);
-  const [promoHidden, setPromoHidden] = useState(false);
+
+  const lastY = useRef(0);
+  const accum = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 12);
-      if (window.scrollY > 60) setPromoHidden(true);
+    lastY.current = window.scrollY;
+
+    const update = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+
+      // Compressed pill once you leave the very top
+      setScrolled(y > 16);
+
+      // Always show strip while near the top
+      if (y < 80) {
+        setHideStrip(false);
+        accum.current = 0;
+      } else {
+        // Accumulate movement in the current direction; flip past 6px threshold
+        if (Math.sign(delta) !== Math.sign(accum.current)) accum.current = 0;
+        accum.current += delta;
+
+        if (accum.current > 6) {
+          setHideStrip(true);
+          accum.current = 6;
+        } else if (accum.current < -6) {
+          setHideStrip(false);
+          accum.current = -6;
+        }
+      }
+
+      lastY.current = y;
+      ticking.current = false;
     };
-    onScroll();
+
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-3 transition-all duration-500 ease-out sm:px-6 ${
-        scrolled ? "pt-2" : "pt-4"
+      className={`fixed inset-x-0 top-0 z-50 px-3 transition-[padding] duration-500 ease-out sm:px-6 ${
+        scrolled ? "pt-2" : "pt-3"
       }`}
     >
-      {/* Ultra-slim announcement strip — fades into navbar on scroll */}
+      {/* Announcement strip — slides + fades, container collapses height */}
       <div
-        className={`mx-auto overflow-hidden transition-all duration-500 ease-out ${
-          promoHidden ? "max-h-0 opacity-0" : "max-h-8 opacity-100 mb-2"
-        }`}
+        aria-hidden={hideStrip}
+        className="mx-auto overflow-hidden transition-[max-height,opacity,margin,transform] duration-[500ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[max-height,opacity,transform]"
+        style={{
+          maxHeight: hideStrip ? 0 : 32,
+          opacity: hideStrip ? 0 : 1,
+          marginBottom: hideStrip ? 0 : 8,
+          transform: hideStrip ? "translateY(-6px)" : "translateY(0)",
+        }}
       >
         <div className="mx-auto flex max-w-3xl items-center justify-center gap-3 text-[10.5px] font-light tracking-[0.14em] text-white/55 sm:text-[11px]">
           <a
@@ -46,25 +97,15 @@ export function SiteHeader() {
           </a>
           <span aria-hidden className="h-3 w-px bg-white/15" />
           <span className="hidden sm:inline uppercase">EV Charging Business Setup Available</span>
-          <button
-            type="button"
-            onClick={() => setPromoHidden(true)}
-            aria-label="Dismiss"
-            className="ml-1 text-white/35 transition-colors hover:text-white/70 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/50 rounded"
-          >
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
         </div>
       </div>
 
       {/* Slim premium pill */}
       <div
-        className={`relative mx-auto flex max-w-5xl items-center justify-between rounded-full border transition-all duration-[450ms] ease-out ${
+        className={`relative mx-auto flex max-w-5xl items-center justify-between rounded-full border transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
           scrolled
-            ? "border-white/[0.07] bg-[rgba(7,15,28,0.7)] px-4 py-1.5 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.6)] backdrop-blur-xl"
-            : "border-white/[0.06] bg-[rgba(7,15,28,0.45)] px-5 py-2 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md"
+            ? "border-white/[0.08] bg-[rgba(7,15,28,0.72)] px-4 py-1.5 shadow-[0_10px_32px_-14px_rgba(0,0,0,0.7)] backdrop-blur-2xl backdrop-saturate-150"
+            : "border-white/[0.06] bg-[rgba(7,15,28,0.42)] px-5 py-2 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md"
         }`}
       >
         {/* Hairline top highlight */}
@@ -76,7 +117,7 @@ export function SiteHeader() {
         {/* Logo */}
         <Link
           to="/"
-          className="group flex items-center gap-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/50 rounded-full"
+          className="group flex items-center gap-2 rounded-full focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/50"
         >
           <img
             src={logo}
@@ -95,7 +136,7 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="group relative py-1 text-[12px] font-light tracking-[0.12em] text-white/55 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:text-white"
+              className="group relative py-1 text-[12px] font-light tracking-[0.12em] text-white/55 transition-colors duration-300 hover:text-white focus-visible:text-white focus-visible:outline-none"
               activeProps={{ className: "text-white" }}
             >
               {({ isActive }) => (
@@ -103,8 +144,10 @@ export function SiteHeader() {
                   {item.label}
                   <span
                     aria-hidden
-                    className={`pointer-events-none absolute -bottom-1 left-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent transition-all duration-400 ease-out ${
-                      isActive ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80"
+                    className={`pointer-events-none absolute -bottom-1 left-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent transition-all duration-[400ms] ease-out ${
+                      isActive
+                        ? "w-full opacity-100"
+                        : "w-0 opacity-0 group-hover:w-full group-hover:opacity-80"
                     }`}
                   />
                 </span>
@@ -118,7 +161,7 @@ export function SiteHeader() {
           <Link
             to="/contact"
             hash="brochure"
-            className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.04] to-white/[0.01] px-4 py-1.5 text-[11.5px] font-light tracking-[0.14em] text-white/90 transition-all duration-400 hover:-translate-y-[1px] hover:border-electric/40 hover:text-white hover:shadow-[0_8px_24px_-10px_var(--electric)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/60"
+            className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.04] to-white/[0.01] px-4 py-1.5 text-[11.5px] font-light tracking-[0.14em] text-white/90 transition-all duration-[400ms] hover:-translate-y-[1px] hover:border-electric/40 hover:text-white hover:shadow-[0_8px_24px_-10px_var(--electric)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/60"
           >
             <span
               aria-hidden
@@ -134,7 +177,7 @@ export function SiteHeader() {
               strokeWidth="1.5"
               strokeLinecap="round"
               aria-hidden
-              className="transition-transform duration-400 group-hover:translate-y-px"
+              className="transition-transform duration-[400ms] group-hover:translate-y-px"
             >
               <path d="M12 5v14M5 12l7 7 7-7" />
             </svg>
