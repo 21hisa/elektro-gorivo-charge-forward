@@ -160,27 +160,13 @@ export function SiteHeader() {
         <div className="hidden items-center md:flex">
           <Link
             to="/contact"
-            hash="brochure"
             className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.04] to-white/[0.01] px-4 py-1.5 text-[11.5px] font-light tracking-[0.14em] text-white/90 transition-all duration-[400ms] hover:-translate-y-[1px] hover:border-electric/40 hover:text-white hover:shadow-[0_8px_24px_-10px_var(--electric)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/60"
           >
             <span
               aria-hidden
               className="absolute inset-0 -z-10 bg-gradient-to-r from-electric/0 via-electric/15 to-electric/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
-            <span className="relative uppercase">Brochure</span>
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              aria-hidden
-              className="transition-transform duration-[400ms] group-hover:translate-y-px"
-            >
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
+            <span className="relative uppercase">Contact</span>
           </Link>
         </div>
 
@@ -214,11 +200,10 @@ export function SiteHeader() {
             ))}
             <Link
               to="/contact"
-              hash="brochure"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full border border-white/[0.09] bg-white/[0.03] px-4 py-2 text-center text-[12px] font-light uppercase tracking-[0.18em] text-white/90 transition-colors hover:border-electric/40 hover:bg-electric/10"
             >
-              Brochure
+              Contact
             </Link>
           </nav>
         </div>

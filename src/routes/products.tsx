@@ -545,9 +545,6 @@ function ProductsPage() {
                     >
                       View details →
                     </button>
-                    <RippleLink to="/contact" hash="brochure" variant="ghost">
-                      Download brochure
-                    </RippleLink>
                   </div>
                 </div>
               </div>
@@ -623,10 +620,7 @@ function ProductsPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <RippleLink to="/contact" hash="brochure" variant="primary">
-                    Download brochure
-                  </RippleLink>
-                  <RippleLink to="/contact" variant="ghost">
+                  <RippleLink to="/contact" variant="primary">
                     Request a quote
                   </RippleLink>
                 </div>
