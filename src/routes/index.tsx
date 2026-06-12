@@ -8,10 +8,8 @@ import { ParallaxHero } from "@/components/ParallaxHero";
 import { RoiCalculator } from "@/components/RoiCalculator";
 import { RippleLink } from "@/components/RippleButton";
 import { TiltCard } from "@/components/TiltCard";
-import forestHero from "@/assets/hero-india-network.png";
-import forestCanopy from "@/assets/forest-canopy.jpg";
-import chargerHero from "@/assets/charger-hero.jpg";
-import ecosystemApp from "@/assets/ecosystem-app.jpg";
+import heroAsset from "@/assets/hero-charging.png.asset.json";
+const forestHero = heroAsset.url;
 import eg30Front from "@/assets/products/eg-30-front.png";
 import eg120Front from "@/assets/products/eg-120-front.png";
 import eg360Front from "@/assets/products/eg-360-front.png";
@@ -109,8 +107,8 @@ function HomePage() {
               <RippleLink to="/products" variant="primary">
                 Explore Chargers →
               </RippleLink>
-              <RippleLink to="/contact" hash="brochure" variant="light">
-                See Your Impact
+              <RippleLink to="/contact" variant="light">
+                Get in Touch
               </RippleLink>
             </motion.div>
 
@@ -268,32 +266,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* MAP */}
-      <section className="relative py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6">
-          <Reveal>
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-electric">Network</p>
-              <h2 className="mt-3 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
-                Find a <span className="text-electric-gradient italic">charging location</span>
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-                Our growing network spans cities, highways, and fleet hubs across India.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-surface shadow-elevated">
-              <iframe
-                title="Charging locations map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=68.0%2C8.0%2C97.5%2C36.0&layer=mapnik"
-                className="h-[420px] w-full grayscale"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       {/* SETUP PROCESS — cinematic luxury journey */}
       <section className="relative overflow-hidden border-y border-border bg-surface/40 py-24 sm:py-32">
@@ -541,90 +513,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ECOSYSTEM */}
-      <section className="relative overflow-hidden py-20 sm:py-32">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 md:grid-cols-2 md:gap-16">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-electric">
-              Smart Charging Ecosystem
-            </p>
-            <h2 className="mt-4 text-balance text-3xl font-extralight tracking-tight sm:text-5xl">
-              Hardware, software, and intelligence — in concert.
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              Every Elektro Gorivo charger is part of a living system. Real-time analytics,
-              dynamic load management, OTA updates, and frictionless payments — all from one
-              app, in your pocket.
-            </p>
-            <ul className="mt-8 space-y-3 text-sm">
-              {[
-                "Mobile app & remote control",
-                "Live energy analytics",
-                "Smart scheduling & solar sync",
-                "Tap-to-pay & fleet billing",
-              ].map((f) => (
-                <li key={f} className="flex items-center gap-3">
-                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_12px_var(--electric)]" />
-                  <span className="text-muted-foreground">{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-electric/40 bg-electric/10 px-3.5 py-1.5 text-xs font-medium text-electric">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-              Secure Network · ISO 27001 aligned · End-to-end encrypted
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-            >
-              <div className="absolute -inset-8 -z-10 rounded-[3rem] bg-electric/15 blur-3xl" />
-              <img
-                src={ecosystemApp}
-                alt="Elektro Gorivo mobile app"
-                width={1280}
-                height={1280}
-                loading="lazy"
-                className="rounded-3xl shadow-elevated"
-              />
-            </motion.div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* CANOPY BANNER */}
-      <section className="relative h-[60vh] min-h-[380px] overflow-hidden">
-        <motion.img
-          initial={{ scale: 1.1 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-          src={forestCanopy}
-          alt="Forest canopy from above"
-          width={1920}
-          height={1080}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="relative mx-auto flex h-full max-w-5xl items-center px-5 sm:px-6">
-          <Reveal>
-            <p className="max-w-2xl text-balance text-2xl font-extralight italic leading-tight text-card sm:text-5xl md:text-6xl">
-              "The best time to plant a tree was twenty years ago.
-              <br />
-              <span className="text-electric-gradient not-italic">The second best time is now.</span>"
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* FINAL CTA — sunset → morning */}
+      {/* FINAL CTA */}
       <section className="relative overflow-hidden py-20 sm:py-32">
         <OrganicBlob className="-left-40 top-20 h-[500px] w-[500px]" opacity={0.18} />
         <OrganicBlob className="-right-40 bottom-0 h-[500px] w-[500px]" opacity={0.14} />
@@ -640,8 +529,8 @@ function HomePage() {
               workplace, or across your network.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <RippleLink to="/contact" hash="brochure" variant="primary">
-                Download Brochure
+              <RippleLink to="/contact" variant="primary">
+                Contact Us
               </RippleLink>
               <RippleLink to="/products" variant="ghost">
                 Explore Products
