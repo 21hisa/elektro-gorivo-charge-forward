@@ -92,8 +92,8 @@ function ContactPage() {
 
           <Reveal delay={0.1}>
             <div className="space-y-10">
-              <Info label="General" lines={["hello@elektrogorivo.com", "+91 90000 00000"]} />
-              <Info label="Sales" lines={["sales@elektrogorivo.com", "Mon–Fri · 9:00 – 19:00 IST"]} />
+              <Info label="General" lines={["elektrogorivo@gmail.com", "+91 93197 08372"]} />
+              <Info label="Sales" lines={["elektrogorivo@gmail.com", "Mon–Fri · 9:00 – 19:00 IST"]} />
               <Info label="HQ" lines={["1st Cross, Indiranagar", "Bengaluru 560038, India"]} />
               <Info label="EU Office" lines={["Friedrichstraße 68", "10117 Berlin, Germany"]} />
 

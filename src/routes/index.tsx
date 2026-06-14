@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { GrowingTree } from "@/components/GrowingTree";
-import { Counter } from "@/components/Counter";
+
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { RoiCalculator } from "@/components/RoiCalculator";
 import { RippleLink } from "@/components/RippleButton";
@@ -11,10 +11,11 @@ import { TiltCard } from "@/components/TiltCard";
 import heroAsset from "@/assets/hero-charging.png.asset.json";
 const forestHero = heroAsset.url;
 import eg30Front from "@/assets/products/eg-30-front.png";
-import eg120Front from "@/assets/products/eg-120-front.png";
-import eg360Front from "@/assets/products/eg-360-front.png";
+import eg60Front from "@/assets/products/eg-60-front.png";
+import eg80Front from "@/assets/products/eg-80-front.png";
 import plugInGraphic from "@/assets/plug_in.svg";
-import startChargeGraphic from "@/assets/start_your_charge.svg";
+import startChargeAsset from "@/assets/start_your_charge.png.asset.json";
+const startChargeGraphic = startChargeAsset.url;
 import chargeGraphic from "@/assets/charge.svg";
 
 export const Route = createFileRoute("/")({
@@ -33,8 +34,8 @@ export const Route = createFileRoute("/")({
 
 const products = [
   { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: eg30Front, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
-  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: eg120Front, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
-  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: eg360Front, tag: "Highway", co2: "9.8t/yr", trees: "445" },
+  { name: "EG-DC 60", spec: "60 kW · Compact DC", img: eg60Front, tag: "Retail & Fleet", co2: "1.6t/yr", trees: "72" },
+  { name: "EG-DC 80", spec: "80 kW · Standalone DC", img: eg80Front, tag: "Commercial", co2: "2.2t/yr", trees: "98" },
 ];
 
 const chargeSteps = [
@@ -137,36 +138,8 @@ function HomePage() {
 
       </ParallaxHero>
 
-      {/* IMPACT */}
-      <section className="relative border-y border-border bg-surface/60 py-14 sm:py-20">
-        <OrganicBlob className="-top-40 -left-32 h-[500px] w-[500px]" opacity={0.12} />
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-          <Reveal>
-            <p className="text-center text-[10px] uppercase tracking-[0.35em] text-muted-foreground sm:text-xs">
-              Live environmental impact
-            </p>
-          </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4 md:mt-12">
-            {[
-              { v: 180, suf: " GWh", l: "Clean energy delivered", emoji: "⚡" },
-              { v: 96, suf: "K", l: "Tonnes of CO₂ avoided", emoji: "🌍" },
-              { v: 1.6, suf: "M", l: "Trees planted equivalent", dec: 1, emoji: "🌱" },
-              { v: 99.9, suf: "%", l: "Network uptime", dec: 1, emoji: "🛡" },
-            ].map((s, i) => (
-              <Reveal key={s.l} delay={i * 0.08}>
-                <div className="text-center md:text-left">
-                  <p className="text-2xl tracking-tight text-electric drop-shadow-[0_0_25px_var(--electric-glow)] sm:text-5xl font-extralight">
-                    <Counter to={s.v} suffix={s.suf} decimals={s.dec ?? 0} />
-                  </p>
-                  <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-                    {s.l}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
 
       {/* PHILOSOPHY */}
       <section className="relative py-20 sm:py-32">

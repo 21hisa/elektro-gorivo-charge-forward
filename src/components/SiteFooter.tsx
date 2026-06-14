@@ -31,8 +31,8 @@ export function SiteFooter() {
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li>hello@elektrogorivo.com</li>
-              <li>+91 90000 00000</li>
+              <li><a href="mailto:elektrogorivo@gmail.com" className="hover:text-electric">elektrogorivo@gmail.com</a></li>
+              <li><a href="tel:+919319708372" className="hover:text-electric">+91 93197 08372</a></li>
               <li>Bengaluru · Berlin</li>
             </ul>
           </div>
