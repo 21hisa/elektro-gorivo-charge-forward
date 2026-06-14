@@ -138,36 +138,8 @@ function HomePage() {
 
       </ParallaxHero>
 
-      {/* IMPACT */}
-      <section className="relative border-y border-border bg-surface/60 py-14 sm:py-20">
-        <OrganicBlob className="-top-40 -left-32 h-[500px] w-[500px]" opacity={0.12} />
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-          <Reveal>
-            <p className="text-center text-[10px] uppercase tracking-[0.35em] text-muted-foreground sm:text-xs">
-              Live environmental impact
-            </p>
-          </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4 md:mt-12">
-            {[
-              { v: 180, suf: " GWh", l: "Clean energy delivered", emoji: "⚡" },
-              { v: 96, suf: "K", l: "Tonnes of CO₂ avoided", emoji: "🌍" },
-              { v: 1.6, suf: "M", l: "Trees planted equivalent", dec: 1, emoji: "🌱" },
-              { v: 99.9, suf: "%", l: "Network uptime", dec: 1, emoji: "🛡" },
-            ].map((s, i) => (
-              <Reveal key={s.l} delay={i * 0.08}>
-                <div className="text-center md:text-left">
-                  <p className="text-2xl tracking-tight text-electric drop-shadow-[0_0_25px_var(--electric-glow)] sm:text-5xl font-extralight">
-                    <Counter to={s.v} suffix={s.suf} decimals={s.dec ?? 0} />
-                  </p>
-                  <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-                    {s.l}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
 
       {/* PHILOSOPHY */}
       <section className="relative py-20 sm:py-32">
