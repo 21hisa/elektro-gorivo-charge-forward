@@ -87,16 +87,16 @@ export function SiteHeader() {
           transform: hideStrip ? "translateY(-6px)" : "translateY(0)",
         }}
       >
-        <div className="mx-auto flex max-w-3xl items-center justify-center gap-3 text-[10.5px] font-light tracking-[0.14em] text-white/55 sm:text-[11px]">
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10.5px] font-light tracking-[0.14em] text-white/70 sm:text-[11px]">
           <a
-            href="tel:+919000000000"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-white/90"
+            href="tel:+919319708372"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
           >
             <span aria-hidden className="h-1 w-1 rounded-full bg-electric/80 shadow-[0_0_6px_var(--electric)]" />
-            +91 90000 00000
+            +91 93197 08372
           </a>
-          <span aria-hidden className="h-3 w-px bg-white/15" />
-          <span className="hidden sm:inline uppercase">EV Charging Business Setup Available</span>
+          <span aria-hidden className="hidden h-3 w-px bg-white/15 sm:inline-block" />
+          <a href="mailto:elektrogorivo@gmail.com" className="transition-colors hover:text-white">elektrogorivo@gmail.com</a>
         </div>
       </div>
 
