@@ -11,10 +11,11 @@ import { TiltCard } from "@/components/TiltCard";
 import heroAsset from "@/assets/hero-charging.png.asset.json";
 const forestHero = heroAsset.url;
 import eg30Front from "@/assets/products/eg-30-front.png";
-import eg120Front from "@/assets/products/eg-120-front.png";
-import eg360Front from "@/assets/products/eg-360-front.png";
+import eg60Front from "@/assets/products/eg-60-front.png";
+import eg80Front from "@/assets/products/eg-80-front.png";
 import plugInGraphic from "@/assets/plug_in.svg";
-import startChargeGraphic from "@/assets/start_your_charge.svg";
+import startChargeAsset from "@/assets/start_your_charge.png.asset.json";
+const startChargeGraphic = startChargeAsset.url;
 import chargeGraphic from "@/assets/charge.svg";
 
 export const Route = createFileRoute("/")({
