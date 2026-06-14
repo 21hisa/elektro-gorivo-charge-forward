@@ -185,15 +185,15 @@ export function SiteHeader() {
 
       {/* Mobile sheet */}
       {open && (
-        <div className="mx-auto mt-2 max-w-5xl rounded-3xl border border-white/[0.07] bg-[rgba(7,15,28,0.82)] p-3 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.7)] backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 max-w-5xl rounded-3xl border border-black/[0.08] bg-white/95 p-3 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.3)] backdrop-blur-xl md:hidden">
           <nav className="flex flex-col">
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-3 py-2.5 text-[13px] font-light tracking-[0.12em] text-white/65 transition-colors hover:bg-white/[0.04] hover:text-white"
-                activeProps={{ className: "text-white bg-white/[0.04]" }}
+                className="rounded-xl px-3 py-2.5 text-[13px] font-light tracking-[0.12em] text-black/70 transition-colors hover:bg-black/[0.04] hover:text-black"
+                activeProps={{ className: "text-black bg-black/[0.04]" }}
               >
                 {item.label}
               </Link>
@@ -201,7 +201,7 @@ export function SiteHeader() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full border border-white/[0.09] bg-white/[0.03] px-4 py-2 text-center text-[12px] font-light uppercase tracking-[0.18em] text-white/90 transition-colors hover:border-electric/40 hover:bg-electric/10"
+              className="mt-2 rounded-full border border-black/[0.12] bg-black px-4 py-2 text-center text-[12px] font-light uppercase tracking-[0.18em] text-white transition-colors hover:border-electric/60 hover:bg-black/90"
             >
               Contact
             </Link>
