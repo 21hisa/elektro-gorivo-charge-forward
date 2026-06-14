@@ -2,7 +2,7 @@ export function FloatingContacts() {
   return (
     <>
       <a
-        href="https://wa.me/919000000000"
+        href="https://wa.me/919319708372"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
