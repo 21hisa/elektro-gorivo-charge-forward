@@ -34,8 +34,8 @@ export const Route = createFileRoute("/")({
 
 const products = [
   { name: "EG-DC 30", spec: "30 kW · Wall / Stand", img: eg30Front, tag: "Workplace", co2: "0.7t/yr", trees: "32" },
-  { name: "EG-DC 120", spec: "80 – 160 kW · Standalone", img: eg120Front, tag: "Commercial", co2: "3.4t/yr", trees: "156" },
-  { name: "EG-DC 360", spec: "360 kW · Hyper Charger", img: eg360Front, tag: "Highway", co2: "9.8t/yr", trees: "445" },
+  { name: "EG-DC 60", spec: "60 kW · Compact DC", img: eg60Front, tag: "Retail & Fleet", co2: "1.6t/yr", trees: "72" },
+  { name: "EG-DC 80", spec: "80 kW · Standalone DC", img: eg80Front, tag: "Commercial", co2: "2.2t/yr", trees: "98" },
 ];
 
 const chargeSteps = [
