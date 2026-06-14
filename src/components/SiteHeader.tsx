@@ -104,14 +104,14 @@ export function SiteHeader() {
       <div
         className={`relative mx-auto flex max-w-5xl items-center justify-between rounded-full border transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
           scrolled
-            ? "border-white/[0.08] bg-[rgba(7,15,28,0.72)] px-4 py-1.5 shadow-[0_10px_32px_-14px_rgba(0,0,0,0.7)] backdrop-blur-2xl backdrop-saturate-150"
-            : "border-white/[0.06] bg-[rgba(7,15,28,0.42)] px-5 py-2 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md"
+            ? "border-black/[0.08] bg-white/90 px-4 py-1.5 shadow-[0_10px_32px_-14px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150"
+            : "border-black/[0.06] bg-white/75 px-5 py-2 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.18)] backdrop-blur-md"
         }`}
       >
         {/* Hairline top highlight */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+          className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"
         />
 
         {/* Logo */}
@@ -124,8 +124,8 @@ export function SiteHeader() {
             alt=""
             className="h-6 w-auto transition-transform duration-500 group-hover:scale-105 sm:h-[26px]"
           />
-          <span className="text-[10.5px] font-light uppercase tracking-[0.32em] text-white/95">
-            Elektro <span className="text-electric/90">Gorivo</span>
+          <span className="text-[10.5px] font-medium uppercase tracking-[0.32em] text-black">
+            Elektro <span className="text-black">Gorivo</span>
           </span>
         </Link>
 
@@ -136,8 +136,8 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="group relative py-1 text-[12px] font-light tracking-[0.12em] text-white/55 transition-colors duration-300 hover:text-white focus-visible:text-white focus-visible:outline-none"
-              activeProps={{ className: "text-white" }}
+              className="group relative py-1 text-[12px] font-light tracking-[0.12em] text-black/65 transition-colors duration-300 hover:text-black focus-visible:text-black focus-visible:outline-none"
+              activeProps={{ className: "text-black" }}
             >
               {({ isActive }) => (
                 <span className="relative">
@@ -160,11 +160,11 @@ export function SiteHeader() {
         <div className="hidden items-center md:flex">
           <Link
             to="/contact"
-            className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.04] to-white/[0.01] px-4 py-1.5 text-[11.5px] font-light tracking-[0.14em] text-white/90 transition-all duration-[400ms] hover:-translate-y-[1px] hover:border-electric/40 hover:text-white hover:shadow-[0_8px_24px_-10px_var(--electric)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/60"
+            className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border border-black/[0.12] bg-black px-4 py-1.5 text-[11.5px] font-light tracking-[0.14em] text-white transition-all duration-[400ms] hover:-translate-y-[1px] hover:border-electric/60 hover:shadow-[0_8px_24px_-10px_var(--electric)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-electric/60"
           >
             <span
               aria-hidden
-              className="absolute inset-0 -z-10 bg-gradient-to-r from-electric/0 via-electric/15 to-electric/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="absolute inset-0 -z-10 bg-gradient-to-r from-electric/0 via-electric/30 to-electric/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
             <span className="relative uppercase">Contact</span>
           </Link>
@@ -175,7 +175,7 @@ export function SiteHeader() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full p-1.5 text-white/80 md:hidden"
+          className="rounded-full p-1.5 text-black/80 md:hidden"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
             {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 8h16M4 16h16" />}
