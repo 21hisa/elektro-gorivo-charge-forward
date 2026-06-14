@@ -87,16 +87,16 @@ export function SiteHeader() {
           transform: hideStrip ? "translateY(-6px)" : "translateY(0)",
         }}
       >
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10.5px] font-light tracking-[0.14em] text-white/70 sm:text-[11px]">
+        <div className="mx-auto flex w-fit max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-1 rounded-full bg-black/60 px-4 py-1 text-[10.5px] font-medium tracking-[0.14em] text-white shadow-[0_4px_18px_-8px_rgba(0,0,0,0.55)] backdrop-blur-md sm:text-[11px]">
           <a
             href="tel:+919319708372"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-electric"
           >
-            <span aria-hidden className="h-1 w-1 rounded-full bg-electric/80 shadow-[0_0_6px_var(--electric)]" />
+            <span aria-hidden className="h-1 w-1 rounded-full bg-electric shadow-[0_0_6px_var(--electric)]" />
             +91 93197 08372
           </a>
-          <span aria-hidden className="hidden h-3 w-px bg-white/15 sm:inline-block" />
-          <a href="mailto:elektrogorivo@gmail.com" className="transition-colors hover:text-white">elektrogorivo@gmail.com</a>
+          <span aria-hidden className="hidden h-3 w-px bg-white/30 sm:inline-block" />
+          <a href="mailto:elektrogorivo@gmail.com" className="transition-colors hover:text-electric">elektrogorivo@gmail.com</a>
         </div>
       </div>
 
