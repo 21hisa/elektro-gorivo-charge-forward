@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { GrowingTree } from "@/components/GrowingTree";
-import { Counter } from "@/components/Counter";
+
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { RoiCalculator } from "@/components/RoiCalculator";
 import { RippleLink } from "@/components/RippleButton";
