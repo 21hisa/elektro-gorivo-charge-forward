@@ -13,7 +13,7 @@ export function FloatingContacts() {
         </svg>
       </a>
       <a
-        href="tel:+919000000000"
+        href="tel:+919319708372"
         aria-label="Call us"
         className="fixed bottom-5 left-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-electric text-background shadow-elevated transition-transform hover:scale-110 sm:h-14 sm:w-14"
       >
