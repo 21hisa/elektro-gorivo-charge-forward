@@ -129,16 +129,16 @@ function AboutPage() {
       <section className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-6 md:grid-cols-2 md:gap-16">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-[#0c2238]">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-[#f3efe0]">
               <img
-                src={aboutHero}
-                alt="Elektro Gorivo DC fast charger detail"
+                src={greenerImg}
+                alt="A young sapling growing in an open field — symbol of a greener tomorrow"
                 width={1280}
-                height={1280}
+                height={1600}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-background/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-background/20 via-transparent to-transparent" />
             </div>
           </Reveal>
           <Reveal delay={0.15}>
