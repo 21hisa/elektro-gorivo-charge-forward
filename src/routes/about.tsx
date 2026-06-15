@@ -37,8 +37,8 @@ const pillars = [
 function AboutPage() {
   return (
     <div>
-      {/* HERO — EV charger image, soft fade only at the very bottom */}
-      <section className="relative h-[88vh] min-h-[560px] overflow-hidden bg-[#0c2238]">
+      {/* HERO — EV charger image with legible headline overlay */}
+      <section className="relative min-h-[640px] overflow-hidden bg-[#0c2238] pt-28 pb-16 sm:h-[84vh] sm:min-h-[640px] sm:pt-32 sm:pb-0">
         <img
           src={aboutHero}
           alt="Elektro Gorivo ultra-fast DC charger powering a premium electric SUV"
@@ -53,21 +53,21 @@ function AboutPage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(8,22,40,0.78) 0%, rgba(8,22,40,0.5) 28%, rgba(8,22,40,0.15) 55%, rgba(8,22,40,0) 75%)",
+              "linear-gradient(to right, rgba(8,22,40,0.88) 0%, rgba(8,22,40,0.6) 34%, rgba(8,22,40,0.2) 60%, rgba(8,22,40,0) 80%)",
           }}
         />
 
-        {/* Very subtle bottom fade — much lighter than before so the EV stays visible */}
+        {/* Mobile: extra top-down darken so the headline reads over the car */}
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+          className="absolute inset-0 sm:hidden"
           style={{
             background:
-              "linear-gradient(to top, rgba(10,15,25,0.55) 0%, rgba(10,15,25,0.15) 60%, transparent 100%)",
+              "linear-gradient(to bottom, rgba(8,22,40,0.75) 0%, rgba(8,22,40,0.35) 50%, rgba(8,22,40,0) 100%)",
           }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-7xl items-end px-5 pb-16 sm:px-6 sm:pb-24">
+        <div className="relative mx-auto flex h-full max-w-7xl items-start px-5 sm:items-center sm:px-6">
           <Reveal>
             <p className="inline-flex items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.4em] text-electric">
               <span className="h-1 w-1 rounded-full bg-electric shadow-[0_0_8px_var(--electric)]" />
@@ -79,7 +79,7 @@ function AboutPage() {
                 EV charging.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-base font-light leading-relaxed text-white/80 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base font-light leading-relaxed text-white/85 sm:text-lg">
               A new venture engineering proprietary, European-standard ultra-fast
               DC chargers — built in-house, end to end.
             </p>
