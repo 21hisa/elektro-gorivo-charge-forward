@@ -14,7 +14,7 @@ import eg30Front from "@/assets/products/eg-30-front.png";
 import eg60Front from "@/assets/products/eg-60-front.png";
 import eg80Front from "@/assets/products/eg-80-front.png";
 import plugInGraphic from "@/assets/plug_in.svg";
-import startChargeAsset from "@/assets/start_your_charge.png.asset.json";
+import startChargeAsset from "@/assets/start_your_charge_v2.png.asset.json";
 const startChargeGraphic = startChargeAsset.url;
 import chargeGraphic from "@/assets/charge.svg";
 
