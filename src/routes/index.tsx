@@ -113,26 +113,8 @@ function HomePage() {
               </RippleLink>
             </motion.div>
 
-            {/* Trust strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-medium text-white/80 sm:mt-12"
-            >
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
-                99.9% Network uptime
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
-                100% Renewable-ready
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#00E676]" />
-                Solar-sync intelligence
-              </span>
-            </motion.div>
+
+
           </div>
         </div>
 

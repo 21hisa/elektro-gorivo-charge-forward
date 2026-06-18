@@ -33,7 +33,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li><a href="mailto:elektrogorivo@gmail.com" className="hover:text-electric">elektrogorivo@gmail.com</a></li>
               <li><a href="tel:+919319708372" className="hover:text-electric">+91 93197 08372</a></li>
-              <li>Bengaluru · Berlin</li>
+              <li>F - 584/c, Govind Nagar, Near Mahavidya Devi Mandir, Mathura (UP) - 281001</li>
             </ul>
           </div>
         </div>
