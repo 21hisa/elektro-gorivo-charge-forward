@@ -2,11 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { OrganicBlob } from "@/components/OrganicBlob";
 import { RippleLink } from "@/components/RippleButton";
-import aboutHeroAsset from "@/assets/about-ev-hero.png.asset.json";
-import greenerAsset from "@/assets/young-tree.jpg.asset.json";
-
-const aboutHero = aboutHeroAsset.url;
-const greenerImg = greenerAsset.url;
+import aboutHero from "@/assets/about-ev-hero.png";
+import greenerImg from "@/assets/young-tree.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
