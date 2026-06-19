@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
-import heroAsset from "@/assets/hero-charging.png.asset.json";
-const forestHero = heroAsset.url;
+import forestHero from "@/assets/hero-charging.png";
 
 /**
  * Cinematic EV hero. Crisp, high-contrast — no fog, no wash.
